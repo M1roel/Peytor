@@ -1,4 +1,6 @@
+@use '../src/styles/mixins.scss' as m;
 @use '../src/styles/variables.scss' as v;
+
 
 @font-face {
     font-family: 'Space Grotesk';
@@ -38,10 +40,27 @@
   
 
 body, html {
+    @include m.flexBox(column, center, flex-start);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background: linear-gradient(120deg, v.$background 0%, v.$surface 60%, v.$primary 100%);
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     color: v.$text-primary;
+}
+
+app-header {
+  height: 56px;
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+app-footer {
+  height: 56px;
+  flex-shrink: 0;
 }
