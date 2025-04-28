@@ -1,0 +1,33 @@
+// Farbpalette – Web3/Neo-Modern
+$primary:      #7f5af0;   // Violett-blau (Kernfarbe, modern)
+$accent:       #2cb67d;   // Türkis/Grün (Akzentfarbe, positiv)
+$secondary:    #232946;   // Dunkles Grau-Blau (Sidebar/Hintergrund)
+$background:   #16161a;   // Sehr dunkles Blau (Main BG, Darkmode)
+$surface:      #2d334a;   // Panel/Card-Flächen
+$text-primary: #fffffe;   // Weiß (Standard-Text)
+$text-accent:  #7f5af0;   // Text in Akzentfarbe
+$text-secondary: #b8c1ec; // Helles Grau (Untertitel/Hilfetexte)
+$error:        #ff3b30;   // Fehlerfarbe
+
+// Web3/Glassmorphism
+$glass-blur:  16px;
+$glass-bg:    rgba(255,255,255,0.12);
+$glass-border: rgba(255,255,255,0.18);
+
+// Abstände & Größen
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$radius:     18px; // Extra große, weiche Ecken
+
+// Schatten
+$shadow: 0 4px 32px 0 rgba(127,90,240,0.12);
+$shadow-strong: 0 8px 40px 0 rgba(44,182,125,0.18);
+
+// Typografie
+$font-family: 'Space Grotesk';
+$font-size-base: 16px;
+$font-size-lg:   22px;
+$font-size-sm:   14px;
+$font-weight-bold: 600;

@@ -1,0 +1,6 @@
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/variables.scss' as v;
+
+span {
+    @include m.styleFont('Space Grotesk', 16px, 400);
+}
