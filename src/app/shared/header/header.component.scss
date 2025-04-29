@@ -1,5 +1,6 @@
 @use '../../../styles/mixins.scss' as m;
 @use '../../../styles/variables.scss' as v;
+@use "sass:color";
 
 .main-header {
     position: absolute;
@@ -51,7 +52,7 @@
     transition: background 0.3s ease;
   
     &:hover {
-      background: lighten(v.$primary, 10%);
+      background: color.adjust(v.$primary, $lightness: 10%);
     }
   }
   
