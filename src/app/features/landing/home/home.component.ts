@@ -17,9 +17,7 @@ export class HomeComponent implements AfterViewInit {
     0xb8c1ec, // $text-secondary
   ];
 
-  particleTexture = new THREE.TextureLoader().load(
-    '../../../../../public/imgs/particle.png'
-  );
+  private loader = new THREE.TextureLoader();
 
   @ViewChild('particlesCanvas', { static: false }) canvasRef!: ElementRef;
 
@@ -28,9 +26,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   createParticles() {
-    const canvas = document.getElementById(
-      'particles-canvas'
-    ) as HTMLCanvasElement;
+    const canvas = this.canvasRef.nativeElement as HTMLCanvasElement;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -69,27 +65,29 @@ export class HomeComponent implements AfterViewInit {
       new THREE.BufferAttribute(colorArray, 3)
     );
 
-    const material = new THREE.PointsMaterial({
-      size: 0.03,
-      map: this.particleTexture,
-      vertexColors: true,
-      transparent: true,
-      depthWrite: false,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending,
+    this.loader.load('imgs/particle.png', (texture) => {
+      const material = new THREE.PointsMaterial({
+        size: 0.03,
+        map: texture,
+        vertexColors: true,
+        transparent: true,
+        depthWrite: false,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending,
+      });
+
+      const particlesMesh = new THREE.Points(particlesGeometry, material);
+      scene.add(particlesMesh);
+
+      camera.position.z = 5;
+
+      const animate = () => {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      };
+
+      animate();
     });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, material);
-    scene.add(particlesMesh);
-
-    camera.position.z = 5;
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-      particlesMesh.rotation.y += 0.001;
-      renderer.render(scene, camera);
-    };
-
-    animate();
   }
 }
