@@ -9,12 +9,12 @@ import * as THREE from 'three';
 })
 export class HomeComponent implements AfterViewInit {
   colors = [
-    0x7f5af0, // $primary
-    0x2cb67d, // $accent
-    0x232946, // $secondary
-    0x16161a, // $background
-    0x2d334a, // $surface
-    0xb8c1ec, // $text-secondary
+    0x7f5af0,
+    0x2cb67d,
+    0x232946,
+    0x16161a,
+    0x2d334a,
+    0xb8c1ec
   ];
 
   private loader = new THREE.TextureLoader();
