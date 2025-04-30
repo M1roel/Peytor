@@ -1,4 +1,21 @@
-.footer {
-    width: 100%;
-    height: 56px;
+@use "../../../styles/mixins.scss" as m;
+@use "../../../styles/variables.scss" as v;
+
+footer {
+  @include m.flexBox(row, space-around, center);
+  width: 100%;
+  height: 56px;
+  background: rgba(22, 22, 26, 0.4);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    color: v.$accent;
+  }
 }
