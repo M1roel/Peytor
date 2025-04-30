@@ -21,7 +21,6 @@
       z-index: 2;
       @include m.flexBox(column, center, center); 
       height: 100%;
-      width: 100%;
       padding: v.$spacing-md;
       text-align: center;
     }

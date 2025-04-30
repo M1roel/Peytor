@@ -3,15 +3,30 @@
       <a routerLink="/">Peytor</a>
     </div>
   
-    <nav class="nav-links">
-      <a routerLink="/">Home</a>
-      <a routerLink="/pricing">Pricing</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/contact">Contact</a>
-    </nav>
-  
-    <div class="cta">
-      <a routerLink="/login" class="login-button">Login</a>
-    </div>
+    <nav class="nav-links" *ngIf="!isMobileMenuOpen">
+    <a routerLink="/">Home</a>
+    <a routerLink="/pricing">Pricing</a>
+    <a routerLink="/about">About</a>
+    <a routerLink="/contact">Kontakt</a>
+  </nav>
+
+  <div class="cta" *ngIf="!isMobileMenuOpen">
+    <a routerLink="/login" class="login-button">Login</a>
+  </div>
+
+  <!-- Burger-Icon 
+  <div class="burger" (click)="toggleMobileMenu()" aria-label="Menü öffnen">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class="mobile-menu" *ngIf="isMobileMenuOpen">
+    <a routerLink="/" (click)="closeMobileMenu()">Home</a>
+    <a routerLink="/pricing" (click)="closeMobileMenu()">Pricing</a>
+    <a routerLink="/about" (click)="closeMobileMenu()">About</a>
+    <a routerLink="/contact" (click)="closeMobileMenu()">Kontakt</a>
+    <a routerLink="/login" (click)="closeMobileMenu()" class="login-button">Login</a>
+  </div> -->
   </header>
   
