@@ -16,7 +16,6 @@
     background: rgba(22, 22, 26, 0.4);
     backdrop-filter: blur(8px);
     box-shadow: 0 1px 8px rgba(0,0,0,0.3);
-    cursor: pointer;
   }
   
   .logo a {
@@ -25,6 +24,7 @@
     color: white;
     text-decoration: none;
     margin-left: 1rem;
+    cursor: pointer;
   }
   
   .nav-links {
@@ -36,6 +36,7 @@
     color: white;
     text-decoration: none;
     font-weight: 500;
+    cursor: pointer;
     transition: color 0.3s ease;
   
     &:hover {
@@ -52,6 +53,7 @@
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease;
+    cursor: pointer;
   
     &:hover {
       background: color.adjust(v.$primary, $lightness: 10%);
