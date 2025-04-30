@@ -1,6 +1,6 @@
 @use '../src/styles/mixins.scss' as m;
 @use '../src/styles/variables.scss' as v;
-
+@use "sass:color";
 
 @font-face {
     font-family: 'Space Grotesk';
@@ -65,3 +65,20 @@ main {
   min-height: 0;
   width: 100%;
 }
+
+.button-primary {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, v.$primary, v.$accent);
+  border-radius: v.$radius;
+  margin-right: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: color.adjust(v.$primary, $lightness: 10%);
+  }
+}
+

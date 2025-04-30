@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import * as THREE from 'three';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  imports: [RouterModule],  
   styleUrls: ['./home.component.scss'],
   standalone: true,
 })
