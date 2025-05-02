@@ -1,1 +1,28 @@
-<p>register works!</p>
+<div class="register-container">
+    <div class="register-info">
+      <h2>Warum Peytor?</h2>
+      <ul>
+        <li>✨ Rechnungen in Sekunden – mit KI-Unterstützung</li>
+        <li>🛡️ DSGVO-konform & Hosting in Deutschland</li>
+        <li>⚡ Kein Ballast – nur die Features, die du brauchst</li>
+        <li>📱 Einfach, modern, auch mobil perfekt nutzbar</li>
+      </ul>
+      <p class="extra">Schon über 500 Selbstständige vertrauen Peytor.</p>
+    </div>
+  
+    <!-- Rechte Seite: Formular -->
+    <div class="register-form">
+      <h2>Jetzt registrieren</h2>
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="name" placeholder="Name" />
+        <input type="email" formControlName="email" placeholder="E-Mail" />
+        <input type="password" formControlName="password" placeholder="Passwort" />
+        <a type="submit" class="button-primary">Konto erstellen</a>
+      </form>
+      <p class="login-hint">
+        Schon registriert?
+        <a routerLink="/login">Hier einloggen</a>
+      </p>
+    </div>
+  </div>
+  

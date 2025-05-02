@@ -1,0 +1,100 @@
+@use '../../../../styles/variables.scss' as v;
+@use '../../../../styles/mixins.scss' as m;
+@use "sass:color";
+
+.register-container {
+  @include m.flexBox();  
+  height: 50h;
+  color: v.$text-primary;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.register-info {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  .extra {
+    margin-top: 2rem;
+    font-style: italic;
+    color: v.$text-secondary;
+  }
+}
+
+.register-form {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  padding: 3rem;
+  border-radius: v.$radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      padding: 0.75rem 1rem;
+      border-radius: v.$radius;
+      border: none;
+      background: v.$surface;
+      color: v.$text-primary;
+      font-size: 1rem;
+
+      &:focus {
+        outline: 2px solid v.$accent;
+      }
+    }
+
+    a {
+        text-align: center;
+      margin: 0 !important;
+    }
+  }
+
+  .login-hint {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: v.$text-secondary;
+
+    a {
+      color: v.$accent;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

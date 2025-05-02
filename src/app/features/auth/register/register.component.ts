@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  onSubmit(){
+
+  } 
 }
