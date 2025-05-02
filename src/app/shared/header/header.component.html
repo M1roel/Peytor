@@ -10,8 +10,14 @@
     <a routerLink="/contact">Contact</a>
   </nav>
 
-  <div class="button-primary" *ngIf="!isMobileMenuOpen">
-    <a routerLink="/login">Login</a>
+  <div class="header-btns">
+    <div class="button-primary" *ngIf="!isMobileMenuOpen">
+      <a routerLink="/dashboard">Demo</a>
+    </div>
+
+    <div class="button-primary" *ngIf="!isMobileMenuOpen">
+      <a routerLink="/login">Login</a>
+    </div>
   </div>
 
   <!-- Burger-Icon 

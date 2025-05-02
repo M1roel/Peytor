@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-info">
+    <h2>Willkommen zurück bei Peytor</h2>
+    <p>✨ Rechnungen erstellen mit KI-Power.<br />Schnell. Sicher. Schön.</p>
+    <p class="quote">„Peytor spart mir täglich Zeit und Nerven.“</p>
+  </div>
+
+  <div class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <input type="email" formControlName="email" placeholder="E-Mail" />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Passwort"
+      />
+      <div class="button-primary">
+        <a type="submit">Einloggen</a>
+      </div>
+    </form>
+    <p class="register-hint">
+      Noch kein Konto?
+      <a routerLink="/register">Jetzt registrieren</a>
+    </p>
+  </div>
+</div>

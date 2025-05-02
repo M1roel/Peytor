@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

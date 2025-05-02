@@ -64,7 +64,8 @@ app-footer {
   flex-shrink: 0;
 }
 
-app-register {
+app-register,
+app-login {
    @include m.flexBox(); 
 } 
 

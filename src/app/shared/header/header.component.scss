@@ -47,20 +47,7 @@
       color: v.$accent;
     }
   }
-  
-  /*.cta .login-button {
-    padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, v.$primary, v.$accent);
-    border-radius: v.$radius;
-    margin-right: 1rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    cursor: pointer;
-  
-    &:hover {
-      background: color.adjust(v.$primary, $lightness: 10%);
-    }
-  }*/
-  
+
+  .header-btns{
+   @include m.flexBox(); 
+  } 
