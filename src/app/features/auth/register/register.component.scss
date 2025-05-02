@@ -6,10 +6,12 @@
   @include m.flexBox();
   position: relative;
   width: 100%;
+  padding: 0 4rem;
   min-height: calc(100vh - 112px);
 
   @media (max-width: 768px) {
     flex-direction: column;
+    padding-top: 200px;
   }
 }
 
@@ -45,8 +47,9 @@
 
 .register-form {
   flex: 1;
-  /*background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);*/
+  width: 80%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
   padding: 3rem;
   border-radius: v.$radius;
   display: flex;

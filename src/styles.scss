@@ -64,16 +64,19 @@ app-footer {
   flex-shrink: 0;
 }
 
+app-register {
+   @include m.flexBox(); 
+} 
+
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
   width: 100%;
-  padding-top: 168px;
 }
 
-.button-primary {
+.button-primary a {
   padding: 0.5rem 1rem;
   background: linear-gradient(135deg, v.$primary, v.$accent);
   border-radius: v.$radius;
