@@ -1,16 +1,15 @@
-@use '../../../../styles/variables.scss' as v;
-@use '../../../../styles/mixins.scss' as m;
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
 @use "sass:color";
 
 .register-container {
-  @include m.flexBox();  
-  height: 50h;
-  color: v.$text-primary;
-  padding: 2rem;
+  @include m.flexBox();
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 112px);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 1rem;
   }
 }
 
@@ -78,7 +77,7 @@
     }
 
     a {
-        text-align: center;
+      text-align: center;
       margin: 0 !important;
     }
   }
