@@ -1,8 +1,8 @@
 <div class="app-layout">
-    <app-sidebar></app-sidebar>
+    <app-sidebar (toggle)="toggleSidebar()"></app-sidebar>
   
-    <main class="app-main">
-      <router-outlet></router-outlet>
-    </main>
+    <main class="app-main" [ngClass]="{ 'sidebar-open': isSidebarOpen, 'sidebar-closed': !isSidebarOpen }">
+        <router-outlet></router-outlet>
+      </main>
   </div>
   

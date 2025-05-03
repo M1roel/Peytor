@@ -11,4 +11,14 @@
   padding: 2rem;
   margin-left: 240px;
   overflow-y: auto;
+  transition: margin-left 0.3s ease;
+  outline: 3px solid red;
 }
+
+.sidebar-open {
+    margin-left: 240px;
+  }
+  
+  .sidebar-closed {
+    margin-left: 64px;
+  }
