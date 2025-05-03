@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<aside class="sidebar" [class.closed]="!isOpen">
+    <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
+  <nav *ngIf="isOpen">
+    <a routerLink="/app/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/app/invoices" routerLinkActive="active">Rechnungen</a>
+    <a routerLink="/app/customers" routerLinkActive="active">Kunden</a>
+    <a routerLink="/app/settings" routerLinkActive="active">Einstellungen</a>
+  </nav>
+</aside>

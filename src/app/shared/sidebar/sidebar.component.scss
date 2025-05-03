@@ -1,0 +1,56 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+
+  &.closed {
+    width: 64px;
+
+    nav {
+      display: none;
+    }
+
+    .toggle-btn {
+      left: 8px;
+    }
+  }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: v.$text-primary;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  nav a {
+    @include m.flexBox(column); 
+    color: v.$text-primary;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+
+    &.active,
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: v.$accent;
+    }
+  }
+}
