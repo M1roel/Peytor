@@ -1,1 +1,33 @@
-<p>invoice-list works!</p>
+<section class="invoice-list">
+    <h2>Deine Rechnungen</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Kunde</th>
+          <th>Datum</th>
+          <th>Status</th>
+          <th>Betrag</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoice of invoices">
+          <td>{{ invoice.number }}</td>
+          <td>{{ invoice.customer }}</td>
+          <td>{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
+          <td>
+            <span [ngClass]="invoice.status">{{ invoice.status }}</span>
+          </td>
+          <td>{{ invoice.amount | currency:'EUR' }}</td>
+          <td class="actions">
+            <button (click)="view(invoice.id)">Ansehen</button>
+            <button (click)="edit(invoice.id)">Bearbeiten</button>
+            <button class="delete" (click)="delete(invoice.id)">Löschen</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
