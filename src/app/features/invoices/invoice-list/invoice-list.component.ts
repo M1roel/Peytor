@@ -19,6 +19,11 @@ export class InvoiceListComponent {
     console.log('Ansehen', id);
   }
 
+  create() {
+    console.log('Neue Rechnung erstellen');
+    // später: this.router.navigate(['new']);
+  }
+
   edit(id: number) {
     console.log('Bearbeiten', id);
   }
