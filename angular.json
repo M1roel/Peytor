@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Peytor": {
+    "peytor": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Peytor:build:production"
+              "buildTarget": "peytor:build:production"
             },
             "development": {
-              "buildTarget": "Peytor:build:development"
+              "buildTarget": "peytor:build:development"
             }
           },
           "defaultConfiguration": "development"
