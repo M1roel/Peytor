@@ -84,7 +84,8 @@ main {
   width: 100%;
 }
 
-.button-primary a {
+.button-primary {
+  width: 20%;
   padding: 0.5rem 1rem;
   background: linear-gradient(135deg, v.$primary, v.$accent);
   border-radius: v.$radius;
@@ -93,8 +94,15 @@ main {
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s ease;
+  outline: none;
+  border: none;
   cursor: pointer;
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
   &:hover {
     background: color.adjust(v.$primary, $lightness: 10%);
   }
