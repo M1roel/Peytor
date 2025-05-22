@@ -94,3 +94,7 @@
     color: v.$text-secondary;
   }
 }
+
+#footer {
+    @include m.flexBox(row, flex-end, flex-end);
+}
