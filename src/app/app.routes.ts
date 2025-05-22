@@ -17,6 +17,7 @@ import { InvoiceEditComponent } from './features/invoices/invoice-edit/invoice-e
 import { InvoiceDetailComponent } from './features/invoices/invoice-detail/invoice-detail.component';
 import { SettingsComponent } from './features/settings/settings.component';
 import { ImprintComponent } from './shared/imprint/imprint.component';
+import { PolicyComponent } from './shared/policy/policy.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,7 @@ export const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'imprint', component: ImprintComponent },
+      { path: 'policy', component: PolicyComponent },
     ],
   },
   {

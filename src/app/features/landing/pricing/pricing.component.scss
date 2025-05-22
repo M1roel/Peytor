@@ -1,0 +1,95 @@
+@use "../../../../styles/mixins.scss" as m;
+@use "../../../../styles/variables.scss" as v;
+
+.pricing {
+  padding: v.$spacing-lg v.$spacing-md;
+  color: v.$text-primary;
+  text-align: center;
+  font-family: v.$font-family;
+
+  .pricing-header {
+    margin-bottom: v.$spacing-lg;
+
+    h2 {
+      color: v.$primary;
+      font-size: 2.5rem;
+      font-weight: v.$font-weight-bold;
+    }
+
+    p {
+      color: v.$text-secondary;
+      font-size: v.$font-size-lg;
+    }
+  }
+
+  .pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: v.$spacing-lg;
+    justify-content: center;
+
+    .card {
+      background: v.$glass-bg;
+      backdrop-filter: blur(v.$glass-blur);
+      border: 1px solid v.$glass-border;
+      border-radius: v.$radius;
+      padding: v.$spacing-lg;
+      width: 300px;
+      box-shadow: v.$shadow;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
+      h3 {
+        color: v.$accent;
+        font-size: v.$font-size-lg;
+        margin-bottom: v.$spacing-sm;
+        font-weight: v.$font-weight-bold;
+      }
+
+      .price {
+        font-size: 2rem;
+        color: v.$text-accent;
+        margin-bottom: v.$spacing-sm;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: v.$spacing-md;
+
+        li {
+          margin-bottom: v.$spacing-xs;
+          font-size: v.$font-size-base;
+        }
+      }
+
+      button {
+        background-color: v.$accent;
+        color: v.$text-primary;
+        border: none;
+        padding: v.$spacing-sm v.$spacing-md;
+        border-radius: v.$radius;
+        font-size: v.$font-size-base;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken(v.$accent, 10%);
+        }
+      }
+
+      &.highlighted {
+        border: 2px solid v.$accent;
+        box-shadow: v.$shadow-strong;
+      }
+    }
+  }
+
+  .pricing-footer {
+    margin-top: v.$spacing-lg;
+    font-size: v.$font-size-sm;
+    color: v.$text-secondary;
+  }
+}
