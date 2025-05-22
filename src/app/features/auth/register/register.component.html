@@ -14,10 +14,10 @@
     <div class="register-form">
       <h2>Jetzt registrieren</h2>
       <form (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Name" [(ngModel)]="name"/>
-        <input type="email" placeholder="E-Mail" [(ngModel)]="email"/>
-        <input type="password" placeholder="Passwort" [(ngModel)]="password"/>
-        <input type="password" placeholder="Passwort wiederholen" [(ngModel)]="confirmPassword"/>
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="name"/>
+        <input type="email" placeholder="E-Mail" name="email" [(ngModel)]="email"/>
+        <input type="password" placeholder="Passwort" name="password" [(ngModel)]="password"/>
+        <input type="password" placeholder="Passwort wiederholen" name="confirmPassword" [(ngModel)]="confirmPassword"/>
         <button id="reg-btn" type="submit" class="button-primary">Konto erstellen</button>
       </form>
       <p class="login-hint">
