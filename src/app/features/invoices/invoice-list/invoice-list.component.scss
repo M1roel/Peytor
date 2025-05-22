@@ -13,13 +13,14 @@
       border-collapse: collapse;
   
       th, td {
-        padding: 1rem;
+        padding: 0 1rem; 
         text-align: left;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
   
       .actions button {
         margin-right: 0.5rem;
+        margin-left: 0;
       }
   
       .delete {
