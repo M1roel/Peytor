@@ -45,3 +45,18 @@
 .header-btns {
   @include m.flexBox();
 }
+
+.logo,
+.nav-links,
+.header-btns {
+  @include m.flexBox();
+  width: 33%;
+}
+
+.logo {
+  justify-content: flex-start;
+}
+
+.header-btns {
+  justify-content: flex-end;
+}
