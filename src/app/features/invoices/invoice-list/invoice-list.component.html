@@ -1,8 +1,6 @@
 <section class="invoice-list">
     <h2>Deine Rechnungen</h2>
-    <div class="button-primary" (click)="create()">
-        <a>+ Neue Rechnung</a>
-    </div>
+    <button class="button-primary" (click)="create()">+ Neue Rechnung</button>
   
     <table>
       <thead>
@@ -25,9 +23,9 @@
           </td>
           <td>{{ invoice.amount | currency:'EUR' }}</td>
           <td class="actions">
-            <button (click)="view(invoice.id)">Ansehen</button>
-            <button (click)="edit(invoice.id)">Bearbeiten</button>
-            <button class="delete" (click)="delete(invoice.id)">Löschen</button>
+            <button class="button-primary" (click)="view(invoice.id)">Ansehen</button>
+            <button class="button-primary" (click)="edit(invoice.id)">Bearbeiten</button>
+            <button class="delete button-primary" (click)="delete(invoice.id)">Löschen</button>
           </td>
         </tr>
       </tbody>
