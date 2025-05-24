@@ -18,6 +18,7 @@ email: string = '';
 password: string = '';
 confirmPassword: string = '';
 user: User | null = null;
+disabled: boolean = true;
 
   constructor(private authService: AuthService) { }
 

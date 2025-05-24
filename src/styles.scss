@@ -105,4 +105,12 @@ main {
   &:hover {
     background: color.adjust(v.$primary, $lightness: 10%);
   }
+
+  &:disabled {
+    background: v.$surface;
+    color: v.$text-secondary;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
 }
