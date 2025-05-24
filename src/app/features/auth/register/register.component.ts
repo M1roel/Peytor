@@ -19,6 +19,7 @@ password: string = '';
 confirmPassword: string = '';
 user: User | null = null;
 disabled: boolean = true;
+termsAccepted: boolean = false;
 
   constructor(private authService: AuthService) { }
 

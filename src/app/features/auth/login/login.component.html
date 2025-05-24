@@ -8,10 +8,10 @@
   <div class="login-form">
     <h2>Login</h2>
     <form (ngSubmit)="onSubmit()">
-      <input type="email" formControlName="email" placeholder="E-Mail" />
+      <input type="email" name="email" placeholder="E-Mail" />
       <input
         type="password"
-        formControlName="password"
+        name="password"
         placeholder="Passwort"
       />
       <button id="login-btn" class="button-primary" type="submit" disabled="disabled">Einloggen</button>

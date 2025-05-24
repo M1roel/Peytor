@@ -19,6 +19,10 @@
         <input type="password" placeholder="Passwort" name="password" [(ngModel)]="password"/>
         <input type="password" placeholder="Passwort wiederholen" name="confirmPassword" [(ngModel)]="confirmPassword"/>
         <button id="reg-btn" type="submit" class="button-primary" [disabled]="disabled">Konto erstellen</button>
+        <div class="check-terms">
+        <input type="checkbox" name="terms" [(ngModel)]="termsAccepted" required /> 
+          <label for="terms">Ich akzeptiere die <a routerLink="/policy" target="_blank">Datenschutzbestimmungen</a></label>
+        </div>
       </form>
       <p class="login-hint">
         Schon registriert?

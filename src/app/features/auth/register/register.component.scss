@@ -88,16 +88,17 @@
     margin-top: 1.5rem;
     font-size: 0.9rem;
     color: v.$text-secondary;
+  }
 
-    a {
+  a {
       color: v.$accent;
       text-decoration: none;
 
       &:hover {
         text-decoration: underline;
+        color: v.$text-accent;
       }
     }
-  }
 
   #reg-btn {
     width: 35%;
