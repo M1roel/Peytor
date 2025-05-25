@@ -1,8 +1,8 @@
-# 🧾 Peytor – Rechnungsverwaltung für Selbstständige & Freelancer
+# 🧾 Peytor - Rechnungsverwaltung für Selbstständige & Freelancer
 
 ## 🇩🇪 Beschreibung (Deutsch)
 
-**Peytor** ist eine moderne Web-App zur effizienten Verwaltung von Rechnungen, Kunden und Zahlungen – entwickelt für Freelancer, Selbstständige und kleine Unternehmen.
+**Peytor** ist eine moderne Web-App zur effizienten Verwaltung von Rechnungen, Kunden und Zahlungen - entwickelt für Freelancer, Selbstständige und kleine Unternehmen.
 
 ✨ **Besonderheiten**:
 - ✍️ Rechnungserstellung mit PDF-Export
@@ -10,9 +10,9 @@
 - 📊 Statusverfolgung („offen“, „bezahlt“, etc.)
 - 📈 Übersichtliches Dashboard
 - 🤖 **Einsatz von KI**, um die Bedienung so intuitiv und effizient wie möglich zu gestalten
-- 🌐 **Modernes Web3-Design** – inspiriert von dezentralen Plattformen und cleanem UI-Trend
+- 🌐 **Modernes Web3-Design** - inspiriert von dezentralen Plattformen und cleanem UI-Trend
 
-Diese App entstand im Rahmen meines eigenen Selbstständigkeitsprojekts – mit Fokus auf echte Anforderungen, ansprechendes Design und zukunftssichere Technologie.
+Diese App entstand im Rahmen meines eigenen Selbstständigkeitsprojekts - mit Fokus auf echte Anforderungen, ansprechendes Design und zukunftssichere Technologie.
 
 > ⚠️ **Hinweis:** Dieses Projekt befindet sich noch in der aktiven Entwicklung. Viele Funktionen werden stetig erweitert.
 
@@ -30,7 +30,7 @@ Diese App entstand im Rahmen meines eigenen Selbstständigkeitsprojekts – mit 
 - 🤖 **AI-enhanced interface** for maximum usability and smart suggestions
 - 🌐 **Modern Web3-inspired design**, based on decentralized aesthetics and sleek UI trends
 
-This app was built as part of my own freelance toolkit – focused on real-world usability, visual clarity, and future-ready technology.
+This app was built as part of my own freelance toolkit - focused on real-world usability, visual clarity, and future-ready technology.
 
 > ⚠️ **Note:** This project is still under active development. Features are continuously evolving.
 
