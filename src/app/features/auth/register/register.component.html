@@ -1,32 +1,65 @@
 <div class="register-container">
-    <div class="register-info">
-      <h2>Warum Peytor?</h2>
-      <ul>
-        <li>✨ Rechnungen in Sekunden - mit KI-Unterstützung</li>
-        <li>🛡️ DSGVO-konform & Hosting in Deutschland</li>
-        <li>⚡ Kein Ballast - nur die Features, die du brauchst</li>
-        <li>📱 Einfach, modern, auch mobil perfekt nutzbar</li>
-      </ul>
-      <!-- <p class="extra">Schon über 500 Selbstständige vertrauen Peytor.</p> -->
-    </div>
-  
-    <div class="register-form">
-      <h2>Jetzt registrieren</h2>
-      <form (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Name" name="name" [(ngModel)]="name"/>
-        <input type="email" placeholder="E-Mail" name="email" [(ngModel)]="email"/>
-        <input type="password" placeholder="Passwort" name="password" [(ngModel)]="password"/>
-        <input type="password" placeholder="Passwort wiederholen" name="confirmPassword" [(ngModel)]="confirmPassword"/>
-        <button id="reg-btn" type="submit" class="button-primary" [disabled]="disabled">Konto erstellen</button>
-        <div class="check-terms">
-        <input type="checkbox" name="terms" [(ngModel)]="termsAccepted" required /> 
-          <label for="terms">Ich akzeptiere die <a routerLink="/policy" target="_blank">Datenschutzbestimmungen</a></label>
-        </div>
-      </form>
-      <p class="login-hint">
-        Schon registriert?
-        <a routerLink="/login">Hier einloggen</a>
-      </p>
-    </div>
+  <div class="register-info">
+    <h2>Warum Peytor?</h2>
+    <ul>
+      <li>✨ Rechnungen in Sekunden - mit KI-Unterstützung</li>
+      <li>🛡️ DSGVO-konform & Hosting in Deutschland</li>
+      <li>⚡ Kein Ballast - nur die Features, die du brauchst</li>
+      <li>📱 Einfach, modern, auch mobil perfekt nutzbar</li>
+    </ul>
+    <!-- <p class="extra">Schon über 500 Selbstständige vertrauen Peytor.</p> -->
   </div>
-  
+
+  <div class="register-form">
+    <h2>Jetzt registrieren</h2>
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Name" name="name" [(ngModel)]="name" />
+      <input
+        type="email"
+        placeholder="E-Mail"
+        name="email"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        placeholder="Passwort"
+        name="password"
+        [(ngModel)]="password"
+      />
+      <input
+        type="password"
+        placeholder="Passwort wiederholen"
+        name="confirmPassword"
+        [(ngModel)]="confirmPassword"
+      />
+      <div class="error-message" [class.visible]="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <button
+        id="reg-btn"
+        type="submit"
+        class="button-primary"
+      >
+        Konto erstellen
+      </button>
+      <div class="check-terms">
+        <input
+          type="checkbox"
+          name="terms"
+          [(ngModel)]="termsAccepted"
+          required
+        />
+        <label for="terms"
+          >Ich akzeptiere die
+          <a routerLink="/policy" target="_blank"
+            >Datenschutzbestimmungen</a
+          ></label
+        >
+      </div>
+    </form>
+    <p class="login-hint">
+      Schon registriert?
+      <a routerLink="/login">Hier einloggen</a>
+    </p>
+  </div>
+</div>

@@ -8,15 +8,24 @@
   <div class="login-form">
     <h2>Login</h2>
     <form (ngSubmit)="onSubmit()">
-      <input type="email" name="email" placeholder="E-Mail" [(ngModel)]="email"/>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-Mail"
+        [(ngModel)]="email"
+      />
       <input
         type="password"
         name="password"
         placeholder="Passwort"
-        [(ngModel)]="password"      
+        [(ngModel)]="password"
       />
-      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-      <button id="login-btn" class="button-primary" type="submit" >Einloggen</button>
+      <div class="error-message" [class.visible]="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <button id="login-btn" class="button-primary" type="submit">
+        Einloggen
+      </button>
     </form>
     <p class="register-hint">
       Noch kein Konto?
