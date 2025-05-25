@@ -27,4 +27,8 @@ export class ErrorMessagesService {
   getInvalidEmailFormatMessage(): string {
     return 'Bitte eine gültige E-Mail-Adresse eingeben.';
   }
+
+  getPasswordMismatchMessage(): string {
+    return 'Die Passwörter stimmen nicht überein. Bitte erneut eingeben.';
+  }
 }

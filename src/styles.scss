@@ -85,6 +85,7 @@ main {
 }
 
 .button-primary {
+  margin: 1rem;
   padding: 0.5rem 1rem;
   background: linear-gradient(135deg, v.$primary, v.$accent);
   border-radius: v.$radius;

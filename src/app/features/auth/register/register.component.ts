@@ -51,6 +51,10 @@ export class RegisterComponent {
       this.errorMessage =
         this.errorMessageService.getFieldRequiredMessage('ein Passwort');
     }
+    if (this.password !== this.confirmPassword) {
+      this.errorMessage =
+        this.errorMessageService.getPasswordMismatchMessage();
+    }
   }
 
   isValidEmail(email: string): boolean {
