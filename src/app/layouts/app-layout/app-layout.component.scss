@@ -1,4 +1,4 @@
-@use '../../../styles/variables.scss' as v;
+@use "../../../styles/variables.scss" as v;
 
 .app-layout {
   display: flex;
@@ -9,15 +9,6 @@
 .app-main {
   flex: 1;
   padding: 2rem;
-  margin-left: 240px;
   overflow-y: auto;
   transition: margin-left 0.3s ease;
 }
-
-.sidebar-open {
-    margin-left: 240px;
-  }
-  
-  .sidebar-closed {
-    margin-left: 64px;
-  }
