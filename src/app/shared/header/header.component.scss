@@ -99,8 +99,10 @@
   position: absolute;
   top: 56px;
   right: 0;
-  background-color: rgba(22, 22, 26, 0.95);
-  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(3px);
   width: 35%;
   padding: 1rem;
   display: flex;

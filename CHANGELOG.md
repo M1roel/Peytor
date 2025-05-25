@@ -25,6 +25,8 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
     - Responsives Verhalten des Headers optimiert (Burger-Menü und Navigation)
 
+    - Dropdown-Menü des Burgers mit Glasmorphism-Effekt versehen (Blur, Transparenz, Schatten)
+
 🐛 Behoben
 
     - Problem behoben, bei dem der Login-Button bei Fehleranzeige verschoben wurde
