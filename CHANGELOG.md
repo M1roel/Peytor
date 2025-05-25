@@ -15,7 +15,7 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
     - Toast-Benachrichtigung bei erfolgreicher Registrierung mit Slide-in-Animation
 
-    - 🔐 Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Pass
+    - 🔐 Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Passwort
 
 🎨 Geändert
 
