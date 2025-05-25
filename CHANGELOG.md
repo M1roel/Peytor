@@ -31,6 +31,8 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
     - Fehlerhafte Angular-Klasse .ng-trigger entfernt und durch funktionale Animation ersetzt
 
+    - Main-Bereich verschiebt sich jetzt korrekt, wenn die Sidebar geschlossen wird – position: fixed in Sidebar entfernt, dadurch nimmt sie wieder am Layoutfluss teil
+
 ---
 
 ## [0.1] - 2025-05-22
