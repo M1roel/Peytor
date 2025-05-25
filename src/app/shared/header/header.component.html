@@ -15,12 +15,11 @@
       <a routerLink="/app/invoices/list">Demo</a>
     </div>
 
-    <div class="button-primary" *ngIf="!isMobileMenuOpen">
+    <div id="login-btn" class="button-primary" *ngIf="!isMobileMenuOpen">
       <a routerLink="/login">Anmelden</a>
     </div>
   </div>
 
-  <!-- Burger-Icon 
   <div class="burger" (click)="toggleMobileMenu()" aria-label="Menü öffnen">
     <div class="bar"></div>
     <div class="bar"></div>
@@ -32,6 +31,6 @@
     <a routerLink="/pricing" (click)="closeMobileMenu()">Pricing</a>
     <a routerLink="/about" (click)="closeMobileMenu()">About</a>
     <a routerLink="/contact" (click)="closeMobileMenu()">Kontakt</a>
-    <a routerLink="/login" (click)="closeMobileMenu()" class="login-button">Login</a>
-  </div> -->
+    <a routerLink="/login" (click)="closeMobileMenu()" class="login-button">Anmelden</a>
+  </div> 
 </header>
