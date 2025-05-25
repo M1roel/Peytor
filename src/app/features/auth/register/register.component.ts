@@ -20,6 +20,10 @@ export class RegisterComponent {
   user: User | null = null;
   disabled: boolean = true;
   termsAccepted: boolean = false;
+  nameError = '';
+  emailError = '';
+  passwordError = '';
+  confirmPasswordError = '';
   errorMessage: string = '';
 
   constructor(
@@ -28,33 +32,61 @@ export class RegisterComponent {
   ) {}
 
   async onSubmit() {
-    await this.validateForm();
-    const userCrentials = this.authService.createUser(
-      this.email,
-      this.password
-    );
-    console.log((await userCrentials).user);
+    this.errorMessage = '';
+
+    if (!this.validateForm()) {
+      return;
+    }
+
+    try {
+      const userCredential = await this.authService.createUser(
+        this.email,
+        this.password
+      );
+      console.log(userCredential.user);
+    } catch (error: any) {
+      this.errorMessage = this.errorMessageService.getAuthErrorMessage(
+        error.code
+      );
+    }
   }
 
   validateForm() {
-    if (!this.name)
+    if (!this.name) {
       this.errorMessage =
         this.errorMessageService.getFieldRequiredMessage('einen Namen');
+      return false;
+    }
+
     if (!this.email) {
       this.errorMessage =
         this.errorMessageService.getFieldRequiredMessage('E-Mail-Adresse');
-    } else if (!this.isValidEmail(this.email)) {
+      return false;
+    }
+
+    if (!this.isValidEmail(this.email)) {
       this.errorMessage =
         this.errorMessageService.getInvalidEmailFormatMessage();
+      return false;
     }
+
     if (!this.password) {
       this.errorMessage =
         this.errorMessageService.getFieldRequiredMessage('ein Passwort');
+      return false;
     }
+
     if (this.password !== this.confirmPassword) {
-      this.errorMessage =
-        this.errorMessageService.getPasswordMismatchMessage();
+      this.errorMessage = this.errorMessageService.getPasswordMismatchMessage();
+      return false;
     }
+
+    if (!this.termsAccepted) {
+      this.errorMessage = 'Bitte akzeptiere die Datenschutzbestimmungen.';
+      return false;
+    }
+
+    return true;
   }
 
   isValidEmail(email: string): boolean {

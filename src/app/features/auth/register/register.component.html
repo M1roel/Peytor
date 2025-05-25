@@ -39,6 +39,7 @@
         id="reg-btn"
         type="submit"
         class="button-primary"
+        [disabled]="!termsAccepted || !name || !email || !password || !confirmPassword"
       >
         Konto erstellen
       </button>
