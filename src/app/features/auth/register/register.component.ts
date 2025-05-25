@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { User } from '@angular/fire/auth';
@@ -25,10 +25,12 @@ export class RegisterComponent {
   passwordError = '';
   confirmPasswordError = '';
   errorMessage: string = '';
+  showSuccess: boolean = false;
 
   constructor(
     private authService: AuthService,
-    private errorMessageService: ErrorMessagesService
+    private errorMessageService: ErrorMessagesService,
+    private router: Router
   ) {}
 
   async onSubmit() {
@@ -43,7 +45,11 @@ export class RegisterComponent {
         this.email,
         this.password
       );
-      console.log(userCredential.user);
+      this.showSuccess = true;
+      setTimeout(() => {
+        this.showSuccess = false;
+        this.router.navigate(['login']);
+      }, 3000);
     } catch (error: any) {
       this.errorMessage = this.errorMessageService.getAuthErrorMessage(
         error.code
