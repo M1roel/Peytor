@@ -114,16 +114,26 @@
     @include m.styleFont("Space Grotesk", 1.5rem, 700);
     text-decoration: none;
     padding: 0.5rem 0;
+    transition: 0.2s ease;
 
     &:hover {
       color: v.$accent;
+      transform: scale(1.03);
     }
   }
 
   .login-button {
     background-color: v.$accent;
+    color: white !important;
     padding: 0.5rem;
     text-align: center;
     border-radius: 4px;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: color.scale(v.$accent, $lightness: -30%);
+      transform: scale(1.03);
+    }
   }
+
 }
