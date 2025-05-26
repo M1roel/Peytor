@@ -19,6 +19,15 @@
   text-decoration: none;
   margin-left: 1rem;
   cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, v.$primary, v.$accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
+  }
 }
 
 .nav-links {
@@ -35,6 +44,7 @@
 
   &:hover {
     color: v.$accent;
+    transform: scale(1.03);
   }
 
   @media (max-width: 800px) {
