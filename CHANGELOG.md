@@ -9,19 +9,23 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
     - Formularvalidierung für Registrierungsformular inkl. Passwortabgleich und E-Mail-Formatprüfung
 
-    - Fehlermeldungen bei ungültiger Eingabe dynamisch angezeigt
+    - Fehlermeldungen bei ungültiger Eingabe werden dynamisch unterhalb der Felder angezeigt
 
     - Checkbox zur Datenschutzbestätigung integriert
 
     - Toast-Benachrichtigung bei erfolgreicher Registrierung mit Slide-in-Animation
 
-    - 🔐 Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Passwort
+    - Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Passwort
+
+    - Vorbereitung für Firestore-Nutzerprofil (users/{uid}) inkl. AppUser-Modell
+
+    - Button-Zustand disabled mit grauem Stil, reduziertem Kontrast und deaktivierter Interaktion
 
 🎨 Geändert
 
     - Layout-Anpassung der Registrierungsseite für bessere Lesbarkeit und mobile Nutzung
 
-    - Design der Buttons und Inputs leicht überarbeitet (Hover-Zustände, Akzentfarben)
+    - Button- und Input-Design angepasst (Hover-Zustände, Akzentfarben, moderne Optik)
 
     - Responsives Verhalten des Headers optimiert (Burger-Menü und Navigation)
 
