@@ -21,6 +21,8 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
     - Button-Zustand disabled mit grauem Stil, reduziertem Kontrast und deaktivierter Interaktion
 
+    - Logo: Hover-Effekt mit Farbverlauf (Gradient) für modernen Look implementiert
+
 🎨 Geändert
 
     - Layout-Anpassung der Registrierungsseite für bessere Lesbarkeit und mobile Nutzung
