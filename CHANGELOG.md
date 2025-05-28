@@ -4,6 +4,18 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
 ---
 
+## [0.3] – in Arbeit
+
+✨ Hinzugefügt
+
+    Speicherung von Benutzerdaten (Name und E-Mail) in Firestore nach erfolgreicher Registrierung
+
+    Neuer UserService zur Verwaltung von Nutzerdaten in Firestore – vorbereitet für spätere Erweiterungen (z. B. UID-Zuordnung, Rollen, Einstellungen)
+
+    Separierung von Zuständigkeiten: Authentifizierung (AuthService) und Datenhaltung (UserService)
+
+---
+
 ## [0.2] - 2025-05-25
 ✨ Hinzugefügt
 

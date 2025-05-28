@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
+import { UserService } from '../../../core/services/user.service';
 import { User } from '@angular/fire/auth';
 import { ErrorMessagesService } from '../../../core/services/error-messages.service';
 
@@ -29,6 +30,7 @@ export class RegisterComponent {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private errorMessageService: ErrorMessagesService,
     private router: Router
   ) {}
@@ -41,10 +43,9 @@ export class RegisterComponent {
     }
 
     try {
-      const userCredential = await this.authService.createUser(
-        this.email,
-        this.password
-      );
+      await this.authService.createUser(this.email, this.password);
+      this.userService.storeUserData(this.name, this.email);
+      await this.userService.saveUserData();
       this.showSuccess = true;
       setTimeout(() => {
         this.showSuccess = false;

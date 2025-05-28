@@ -1,16 +1,10 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { addDoc } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireService {
-
-  public userData: any = {};
-
-  constructor(authService: AuthService) { }
-
-  storeUser(name: string) {
-  }
+  constructor() { }
 }

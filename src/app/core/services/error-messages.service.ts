@@ -15,6 +15,8 @@ export class ErrorMessagesService {
         return 'Kein Benutzer mit dieser E-Mail gefunden.';
       case 'auth/email-already-in-use':
         return 'Diese E-Mail-Adresse ist bereits registriert.';
+      case 'auth/weak-password':
+        return 'Das Passwort muss mindestens 6 Zeichen lang sein.';
       default:
         return 'Unbekannter Fehler: ' + errorCode;
     }
