@@ -43,9 +43,10 @@ export class RegisterComponent {
     }
 
     try {
-      await this.authService.createUser(this.email, this.password);
-      this.userService.storeUserData(this.name, this.email);
-      await this.userService.saveUserData();
+      const userCredential = await this.authService.createUser(this.email, this.password);
+      const uid = userCredential.user.uid;
+      this.userService.storeUserData(uid, this.name, this.email);
+      await this.userService.addUserToFirestore();
       this.showSuccess = true;
       setTimeout(() => {
         this.showSuccess = false;

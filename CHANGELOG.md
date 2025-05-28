@@ -74,4 +74,4 @@ Jede Eintragung folgt diesem Aufbau:
 
 ---
 
-Letztes Update: *25. Mai 2025*
+Letztes Update: *28. Mai 2025*
