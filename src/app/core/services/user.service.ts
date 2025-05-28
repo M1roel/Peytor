@@ -29,7 +29,5 @@ export class UserService {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
-
-    console.log('User added to Firestore with UID:', uid);
   }
 }
