@@ -24,7 +24,7 @@ export class RegisterComponent {
   nameError = '';
   emailError = '';
   passwordError = '';
-  confirmPasswordError = '';
+  confirmPasswordError = ''; 
   errorMessage: string = '';
   showSuccess: boolean = false;
 
