@@ -4,15 +4,40 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
 ---
 
-## [0.3] – in Arbeit
+## 
+
+## [0.31] – in Arbeit
 
 ✨ Hinzugefügt
 
-    - Speicherung von Benutzerdaten (UID, Name und E-Mail) in Firestore nach erfolgreicher Registrierung
+- Registrierung via Supabase: E-Mail + Passwort mit Auth-API
+- Speicherung von Benutzerdaten (Name und E-Mail) in der `users`-Tabelle (Supabase) nach erfolgreicher Registrierung
+- `id` des authentifizierten Nutzers wird als Primärschlüssel in der Tabelle `users` verwendet (Verknüpfung mit `auth.users.id`)
+- Neuer `UserService` zur Verwaltung von Nutzerprofilen in Supabase – vorbereitet für spätere Erweiterungen (z. B. Rollen, Einstellungen)
+- Grundstruktur für Supabase-Integration (Service, Auth-API, environment)
 
-    - Neuer UserService zur Verwaltung von Nutzerdaten in Firestore - vorbereitet für spätere Erweiterungen (z. B. UID-Zuordnung, Rollen, Einstellungen)
+🎨 Geändert
 
-    - Separierung von Zuständigkeiten: Authentifizierung (AuthService) und Datenhaltung (UserService)
+- `register.component.ts`: Aufruf von `storeUserData()` und `addUserToSupabase()` angepasst für Supabase
+- Firebase entfernt: `AuthService` und `UserService` vollständig auf Supabase umgestellt
+- `app.config.ts`: Firebase-Provider entfernt, da Supabase nun Backend-Funktionalität übernimmt
+
+---
+
+## [0.3] – 2025-06-02
+
+✨ Hinzugefügt
+
+- Speicherung von Benutzerdaten (Name und E-Mail) in Firestore nach erfolgreicher Registrierung
+- UID des authentifizierten Users wird als Dokument-ID in Firestore verwendet (`users/{uid}`)
+- Neuer `UserService` zur Verwaltung von Nutzerdaten in Firestore – vorbereitet für spätere Erweiterungen (z. B. Rollen, Einstellungen)
+- Separierung von Zuständigkeiten: Authentifizierung (`AuthService`) und Datenhaltung (`UserService`)
+
+🎨 Geändert
+
+- `register.component.ts`: Aufruf von `storeUserData()` und `addUserToFirestore()` integriert
+- Firestore-Zugriff von zufälliger ID (`addDoc`) auf benutzerdefinierte UID (`setDoc`) umgestellt
+
 
 ---
 

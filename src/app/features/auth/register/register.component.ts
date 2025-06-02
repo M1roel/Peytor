@@ -43,10 +43,13 @@ export class RegisterComponent {
     }
 
     try {
-      const userCredential = await this.authService.createUser(this.email, this.password);
-      const uid = userCredential.user.uid;
+      const result = await this.authService.createUser(this.email, this.password);
+      const uid = result.user?.id;
+      if (!uid) {
+        throw new Error('Benutzer-ID konnte nicht ermittelt werden.');
+      }
       this.userService.storeUserData(uid, this.name, this.email);
-      await this.userService.addUserToFirestore();
+      await this.userService.addUserToSupabase();
       this.showSuccess = true;
       setTimeout(() => {
         this.showSuccess = false;
