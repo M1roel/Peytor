@@ -42,6 +42,7 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 ---
 
 ## [0.2] - 2025-05-25
+
 ✨ Hinzugefügt
 
     - Formularvalidierung für Registrierungsformular inkl. Passwortabgleich und E-Mail-Formatprüfung
