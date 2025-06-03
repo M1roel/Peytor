@@ -6,15 +6,15 @@ import { Injectable } from '@angular/core';
 export class ErrorMessagesService {
   getAuthErrorMessage(errorCode: string): string {
     switch (errorCode) {
-      case 'auth/invalid-email':
+      case 'invalid-email':
         return 'Diese E-Mail-Adresse ist leider ungültig.';
       case 'invalid_credentials':
         return 'Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.';
-      case 'auth/user-not-found':
+      case 'user-not-found':
         return 'Kein Benutzer mit dieser E-Mail gefunden.';
-      case 'auth/email-already-in-use':
+      case 'email-already-in-use':
         return 'Diese E-Mail-Adresse ist bereits registriert.';
-      case 'auth/weak-password':
+      case 'weak_password':
         return 'Das Passwort muss mindestens 6 Zeichen lang sein.';
       case 'email_not_confirmed':
         return 'Bitte bestätige deine E-Mail-Adresse, um fortzufahren.';
