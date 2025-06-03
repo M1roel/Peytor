@@ -8,7 +8,7 @@ export class ErrorMessagesService {
     switch (errorCode) {
       case 'auth/invalid-email':
         return 'Diese E-Mail-Adresse ist leider ungültig.';
-      case 'auth/invalid-credential':
+      case 'invalid_credentials':
       case 'auth/wrong-password':
         return 'Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.';
       case 'auth/user-not-found':
@@ -17,6 +17,8 @@ export class ErrorMessagesService {
         return 'Diese E-Mail-Adresse ist bereits registriert.';
       case 'auth/weak-password':
         return 'Das Passwort muss mindestens 6 Zeichen lang sein.';
+      case 'email_not_confirmed':
+        return 'Bitte bestätige deine E-Mail-Adresse, um fortzufahren.';
       default:
         return 'Unbekannter Fehler: ' + errorCode;
     }
