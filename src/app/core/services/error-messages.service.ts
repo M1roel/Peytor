@@ -9,7 +9,6 @@ export class ErrorMessagesService {
       case 'auth/invalid-email':
         return 'Diese E-Mail-Adresse ist leider ungültig.';
       case 'invalid_credentials':
-      case 'auth/wrong-password':
         return 'Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.';
       case 'auth/user-not-found':
         return 'Kein Benutzer mit dieser E-Mail gefunden.';
