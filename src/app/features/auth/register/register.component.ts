@@ -21,10 +21,6 @@ export class RegisterComponent {
   user: User | null = null;
   disabled: boolean = true;
   termsAccepted: boolean = false;
-  nameError = '';
-  emailError = '';
-  passwordError = '';
-  confirmPasswordError = ''; 
   errorMessage: string = '';
   showSuccess: boolean = false;
 
@@ -43,7 +39,10 @@ export class RegisterComponent {
     }
 
     try {
-      const result = await this.authService.createUser(this.email, this.password);
+      const result = await this.authService.createUser(
+        this.email,
+        this.password
+      );
       const uid = result.user?.id;
       if (!uid) {
         throw new Error('Benutzer-ID konnte nicht ermittelt werden.');
@@ -57,7 +56,7 @@ export class RegisterComponent {
       }, 3000);
     } catch (error: any) {
       this.errorMessage = this.errorMessageService.getAuthErrorMessage(
-        error.code
+        error?.code || error?.message || 'unknown'
       );
     }
   }

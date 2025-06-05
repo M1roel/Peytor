@@ -4,24 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ErrorMessagesService {
-  getAuthErrorMessage(errorCode: string): string {
-    switch (errorCode) {
-      case 'invalid-email':
-        return 'Diese E-Mail-Adresse ist leider ungültig.';
-      case 'invalid_credentials':
-        return 'Falsches Passwort oder E-Mail. Bitte noch einmal versuchen.';
-      case 'user-not-found':
-        return 'Kein Benutzer mit dieser E-Mail gefunden.';
-      case 'email-already-in-use':
-        return 'Diese E-Mail-Adresse ist bereits registriert.';
-      case 'weak_password':
-        return 'Das Passwort muss mindestens 6 Zeichen lang sein.';
-      case 'email_not_confirmed':
-        return 'Bitte bestätige deine E-Mail-Adresse, um fortzufahren.';
-      default:
-        return 'Unbekannter Fehler: ' + errorCode;
-    }
+
+  getAuthErrorMessage(errorCodeOrMessage: string): string {
+  switch (errorCodeOrMessage) {
+    case 'invalid-email':
+    case 'invalid_credentials':
+      return 'Diese E-Mail-Adresse ist leider ungültig oder das Passwort ist falsch.';
+    case 'User already registered':
+    case 'email-already-in-use':
+      return 'Diese E-Mail-Adresse ist bereits registriert.';
+    case 'user-not-found':
+      return 'Kein Benutzer mit dieser E-Mail gefunden.';
+    case 'weak_password':
+      return 'Das Passwort muss mindestens 6 Zeichen lang sein.';
+    case 'email_not_confirmed':
+      return 'Bitte bestätige deine E-Mail-Adresse, um fortzufahren.';
+    default:
+      return 'Unbekannter Fehler: ' + errorCodeOrMessage;
   }
+}
 
   getFieldRequiredMessage(field: string): string {
     return `Bitte ${field} eingeben.`;

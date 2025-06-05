@@ -41,6 +41,8 @@ export class LoginComponent {
   }
 
   handleLoginError(error: any) {
-    this.errorMessage = this.errorService.getAuthErrorMessage(error.code);
+    this.errorMessage = this.errorService.getAuthErrorMessage(
+      error?.code || error?.message || 'unknown'
+    );
   }
 }
