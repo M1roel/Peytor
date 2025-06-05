@@ -7,11 +7,10 @@ export class ErrorMessagesService {
 
   getAuthErrorMessage(errorCodeOrMessage: string): string {
   switch (errorCodeOrMessage) {
-    case 'invalid-email':
+    case 'invalid_email':
     case 'invalid_credentials':
       return 'Diese E-Mail-Adresse ist leider ungültig oder das Passwort ist falsch.';
     case 'user_already_exists':
-    case 'email-already-in-use':
       return 'Diese E-Mail-Adresse ist bereits registriert.';
     case 'user-not-found':
       return 'Kein Benutzer mit dieser E-Mail gefunden.';
