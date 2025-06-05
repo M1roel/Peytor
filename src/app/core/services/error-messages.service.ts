@@ -10,7 +10,7 @@ export class ErrorMessagesService {
     case 'invalid-email':
     case 'invalid_credentials':
       return 'Diese E-Mail-Adresse ist leider ungültig oder das Passwort ist falsch.';
-    case 'User already registered':
+    case 'user_already_exists':
     case 'email-already-in-use':
       return 'Diese E-Mail-Adresse ist bereits registriert.';
     case 'user-not-found':
