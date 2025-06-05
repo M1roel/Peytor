@@ -1,0 +1,58 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+@use "sass:color";
+
+.contact-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: v.$spacing-md;
+  background: v.$glass-bg;
+  border-radius: v.$radius;
+  backdrop-filter: blur(v.$glass-blur);
+  -webkit-backdrop-filter: blur(v.$glass-blur);
+  border: 1px solid v.$glass-border;
+  box-shadow: v.$shadow;
+  font-family: v.$font-family;
+  color: v.$text-primary;
+
+  h2 {
+    text-align: center;
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-bold;
+    color: v.$text-accent;
+    margin-bottom: v.$spacing-md;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-md;
+
+    input,
+    textarea {
+      background: v.$surface;
+      border: none;
+      border-radius: v.$radius;
+      padding: v.$spacing-md;
+      font-size: v.$font-size-base;
+      color: v.$text-primary;
+      box-shadow: inset 0 0 0 1px transparent;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+
+      &::placeholder {
+        color: v.$text-secondary;
+      }
+
+      &:focus {
+        outline: none;
+        background: color.adjust(v.$surface, $lightness: 2%);
+        box-shadow: 0 0 0 2px v.$accent;
+      }
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }    
+  }
+}
