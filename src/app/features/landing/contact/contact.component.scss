@@ -2,6 +2,13 @@
 @use "../../../../styles/mixins.scss" as m;
 @use "sass:color";
 
+.contact-main {
+  @include m.flexBox();
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 112px);
+}
+
 .contact-wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -53,6 +60,6 @@
     textarea {
       min-height: 150px;
       resize: vertical;
-    }    
+    }
   }
 }
