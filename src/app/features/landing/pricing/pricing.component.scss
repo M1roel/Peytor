@@ -3,7 +3,10 @@
 @use 'sass:color';
 
 .pricing {
-  padding: v.$spacing-lg v.$spacing-md;
+  @include m.flexBox(column, center, center);
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 112px);
   color: v.$text-primary;
   text-align: center;
   font-family: v.$font-family;
