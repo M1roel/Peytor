@@ -33,6 +33,10 @@
     margin-bottom: 1rem;
   }
 
+  nav {
+   @include m.flexBox(column);
+  } 
+
   nav a {
     @include m.flexBox(column); 
     color: v.$text-primary;
