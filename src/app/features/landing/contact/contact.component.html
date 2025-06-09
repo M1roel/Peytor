@@ -1,23 +1,23 @@
 <section class="contact-main">
   <div class="contact-wrapper">
     <h2>Kontaktiere uns</h2>
-    <form (ngSubmit)="onSubmit()">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
       <input
         type="text"
-        [(ngModel)]="name"
+        [(ngModel)]="contactData.name"
         name="name"
         placeholder="Dein Name"
         required
       />
       <input
         type="email"
-        [(ngModel)]="email"
+        [(ngModel)]="contactData.email"
         name="email"
         placeholder="Deine E-Mail-Adresse"
         required
       />
       <textarea
-        [(ngModel)]="message"
+        [(ngModel)]="contactData.message"
         name="message"
         placeholder="Deine Nachricht"
         required
