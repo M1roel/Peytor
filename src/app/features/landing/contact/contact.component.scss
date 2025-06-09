@@ -17,7 +17,6 @@
   border-radius: v.$radius;
   backdrop-filter: blur(v.$glass-blur);
   -webkit-backdrop-filter: blur(v.$glass-blur);
-  border: 1px solid v.$glass-border;
   box-shadow: v.$shadow;
   font-family: v.$font-family;
   color: v.$text-primary;
