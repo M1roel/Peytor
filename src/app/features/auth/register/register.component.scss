@@ -51,6 +51,7 @@
   backdrop-filter: blur(12px);
   padding: 3rem;
   border-radius: v.$radius;
+  box-shadow: v.$shadow;
   display: flex;
   flex-direction: column;
   justify-content: center;
