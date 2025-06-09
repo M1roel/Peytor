@@ -47,7 +47,7 @@
 .register-form {
   flex: 1;
   width: 80%;
-  background: rgba(255, 255, 255, 0.03);
+  background: v.$glass-bg;
   backdrop-filter: blur(12px);
   padding: 3rem;
   border-radius: v.$radius;
