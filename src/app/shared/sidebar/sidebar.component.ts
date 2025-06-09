@@ -19,11 +19,16 @@ export class SidebarComponent {
   }
 
   async logout(): Promise<void> {
-    try {
-      await this.authService.logoutUser();
-      this.router.navigate(['/login']); // Zielseite anpassen
-    } catch (error) {
-      console.error('Fehler beim Logout:', error);
+  try {
+    await this.authService.logoutUser();
+    this.router.navigate(['/login']);
+  } catch (error: any) {
+    if (error.message.includes('LockManager')) {
+      console.warn('Ein anderer Auth-Vorgang war aktiv. Erzwungener Logout.');
+      this.router.navigate(['/login']);
+    } else {
+      console.error('Logout-Fehler:', error);
     }
   }
+}
 }
