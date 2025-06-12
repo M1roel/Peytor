@@ -57,11 +57,16 @@
 }
 
 .logo,
-.nav-links,
 .header-btns {
   @include m.flexBox();
-  width: 33%;
+  width: 28%;
 }
+
+
+.nav-links {
+  @include m.flexBox(row, center, space-between);
+  width: 44%;
+} 
 
 #login-btn {
   margin: 0 1rem;
