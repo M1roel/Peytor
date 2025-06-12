@@ -1,5 +1,6 @@
 import { CommonModule, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './invoice-list.component.scss'
 })
 export class InvoiceListComponent {
+
+  constructor(private router: Router) {}
 
   invoices = [
     { id: 1, number: 'INV-001', customer: 'Peter GmbH', date: new Date(), status: 'bezahlt', amount: 199.99 },
@@ -20,8 +23,7 @@ export class InvoiceListComponent {
   }
 
   create() {
-    console.log('Neue Rechnung erstellen');
-    // später: this.router.navigate(['new']);
+    this.router.navigate(['app/invoices/new']);
   }
 
   edit(id: number) {
