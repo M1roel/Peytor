@@ -22,7 +22,11 @@
         placeholder="Deine Nachricht"
         required
       ></textarea>
+      <div class="error-message" [class.visible]="errorMessage">
+        {{ errorMessage }}
+      </div>
       <button class="button-primary" type="submit">Absenden</button>
     </form>
   </div>
+  <div class="toast" [class.visible]="showSuccess">Dein Nachricht wurde erfolgreich gesendet!</div>
 </section>
