@@ -4,7 +4,7 @@ import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { CustomersComponent } from './features/customers/customers.component';
 import { CustomerDetailComponent } from './features/customers/customer-detail/customer-detail.component';
 import { CustomerListComponent } from './features/customers/customer-list/customer-list.component';
-import { DashbordComponent } from './features/dashbord/dashbord.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { HomeComponent } from './features/landing/home/home.component';
 import { PricingComponent } from './features/landing/pricing/pricing.component';
 import { AboutComponent } from './features/landing/about/about.component';
@@ -12,6 +12,14 @@ import { ContactComponent } from './features/landing/contact/contact.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { InvoicesComponent } from './features/invoices/invoices.component';
+import { InvoiceNewComponent } from './features/invoices/invoice-new/invoice-new.component';
+import { FormComponent } from './features/invoices/invoice-new/form/form.component';
+import { WizardComponent } from './features/invoices/invoice-new/wizard/wizard.component';
+import { StepsComponent } from './features/invoices/invoice-new/wizard/steps/steps.component';  
+import { CostsComponent } from './features/invoices/invoice-new/wizard/steps/costs/costs.component'; 
+import { CustomerComponent } from './features/invoices/invoice-new/wizard/steps/customer/customer.component';
+import { PositionsComponent } from './features/invoices/invoice-new/wizard/steps/positions/positions.component'; 
+import { PreviewComponent } from './features/invoices/invoice-new/wizard/steps/preview/preview.component'; 
 import { InvoiceListComponent } from './features/invoices/invoice-list/invoice-list.component';
 import { InvoiceEditComponent } from './features/invoices/invoice-edit/invoice-edit.component';
 import { InvoiceDetailComponent } from './features/invoices/invoice-detail/invoice-detail.component';
@@ -40,7 +48,7 @@ export const routes: Routes = [
     component: AppLayoutComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashbordComponent },
+      { path: 'dashboard', component: DashboardComponent },
       {
         path: 'customers',
         component: CustomersComponent,
@@ -55,6 +63,40 @@ export const routes: Routes = [
         component: InvoicesComponent,
         children: [
           { path: '', redirectTo: 'list', pathMatch: 'full' },
+          {
+            path: 'new',
+            component: InvoiceNewComponent,
+            children: [
+              { path: '', redirectTo: 'form', pathMatch: 'full' },
+              { path: 'form', component: FormComponent },
+              {
+                path: 'wizard',
+                component: WizardComponent,
+                children: [
+                  {
+                    path: '',
+                    redirectTo: 'steps',
+                    pathMatch: 'full',
+                  },
+                  {
+                    path: 'steps',
+                    component: StepsComponent,
+                    children: [
+                      {
+                        path: '',
+                        redirectTo: 'customer',
+                        pathMatch: 'full',
+                      },
+                      { path: 'customer', component: CustomerComponent },
+                      { path: 'costs', component: CostsComponent },
+                      { path: 'positions', component: PositionsComponent },
+                      { path: 'preview', component: PreviewComponent },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
           { path: 'list', component: InvoiceListComponent },
           { path: 'edit/:id', component: InvoiceEditComponent },
           { path: 'detail/:id', component: InvoiceDetailComponent },
