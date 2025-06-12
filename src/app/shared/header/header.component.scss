@@ -52,10 +52,6 @@
   }
 }
 
-.header-btns {
-  @include m.flexBox();
-}
-
 .logo,
 .header-btns {
   @include m.flexBox();
