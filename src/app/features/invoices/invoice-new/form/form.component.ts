@@ -35,7 +35,6 @@ calculateTotal() {
 onSubmit(form: NgForm) {
   if (form.valid) {
     console.log('Rechnung:', this.invoice);
-    // hier speichern oder an Backend senden
   }
 }
 }
