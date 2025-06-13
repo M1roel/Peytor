@@ -1,0 +1,129 @@
+@use "../../../../../styles/mixins.scss" as m;
+@use "../../../../../styles/variables.scss" as v;
+@use "sass:color";
+
+.invoice-form-wrapper {
+  @include m.flexBox(column, flex-start, center);
+  padding: v.$spacing-lg;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  h2 {
+    color: v.$primary;
+    font-size: v.$font-size-xxl;
+    font-weight: v.$font-weight-bold;
+    margin-bottom: v.$spacing-lg;
+    text-align: center;
+  }
+
+  form {
+    background: v.$glass-bg;
+    backdrop-filter: blur(v.$glass-blur);
+    border-radius: v.$radius;
+    padding: v.$spacing-lg;
+    box-shadow: v.$shadow;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-md;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 500;
+      font-size: v.$font-size-sm;
+      margin-bottom: v.$spacing-xs;
+      color: v.$text-secondary;
+    }
+
+    input {
+      padding: v.$spacing-sm;
+      border-radius: v.$radius;
+      border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+      background: v.$surface;
+      color: v.$text-primary;
+      font-size: v.$font-size-base;
+
+      &:focus {
+        border-color: v.$primary;
+        outline: none;
+      }
+    }
+  }
+
+  .invoice-item {
+    border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+    border-radius: v.$radius;
+    padding: v.$spacing-md;
+    background-color: v.$surface;
+    display: grid;
+    gap: v.$spacing-sm;
+
+    h4 {
+      margin: 0 0 v.$spacing-sm 0;
+      font-size: v.$font-size-md;
+      font-weight: v.$font-weight-bold;
+      color: v.$accent;
+    }
+
+    input {
+      padding: v.$spacing-sm;
+      border-radius: v.$radius;
+      border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+      background: color.adjust(v.$surface, $lightness: 5%);
+      color: v.$text-primary;
+      font-size: v.$font-size-base;
+    }
+
+    button {
+      margin-top: v.$spacing-sm;
+      align-self: flex-start;
+      background: v.$error;
+      color: white;
+      border: none;
+      padding: v.$spacing-xs v.$spacing-md;
+      border-radius: v.$radius;
+      font-size: v.$font-size-sm;
+      cursor: pointer;
+
+      &:hover {
+        background: color.adjust(v.$error, $lightness: -10%);
+      }
+    }
+  }
+
+  .total {
+    text-align: right;
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-bold;
+    color: v.$text-accent;
+  }
+
+  .add-item-button,
+  button[type='submit'] {
+    background: linear-gradient(135deg, v.$primary, v.$accent);
+    color: white;
+    border: none;
+    padding: v.$spacing-sm v.$spacing-lg;
+    border-radius: v.$radius;
+    font-size: v.$font-size-base;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: color.adjust(v.$primary, $lightness: 10%);
+    }
+
+    &:disabled {
+      background: v.$surface;
+      color: v.$text-secondary;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+}
