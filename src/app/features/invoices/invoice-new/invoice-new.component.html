@@ -1,3 +1,15 @@
 <section class="invoice-new-selection">
     <h2>Neue Rechnung erstellen</h2>
-</section>
+    <p>Wähle aus, ob du eine geführte Rechnung schreiben möchtest, oder alle Daten selbst eingeben möchtest.</p>
+    <div class="invoice-cards">
+        <div class="card">
+            <h3>Geführte Rechnung</h3>
+            <p>Erstelle eine Rechnung mit Hilfe eines Assistenten, der dich durch die Schritte führt.</p>
+            <button class="btn btn-primary" [routerLink]="['/app/invoices/wizard/customer']">Assistent starten</button>
+        </div>
+        <div class="card">
+            <h3>Formularbasierte Rechnung</h3>
+            <p>Trage alle Rechnungsdaten manuell in einem klassischen Formular ein. Ideal für erfahrene Nutzer.</p>
+            <button class="btn btn-secondary" [routerLink]="['/app/invoices/form']">Formular öffnen</button>
+        </div>
+    </div>

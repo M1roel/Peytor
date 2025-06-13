@@ -62,28 +62,25 @@ export const routes: Routes = [
         component: InvoicesComponent,
         children: [
           { path: '', redirectTo: 'list', pathMatch: 'full' },
-          {
-            path: 'new',
-            component: InvoiceNewComponent,
-            children: [
-              { path: '', redirectTo: 'form', pathMatch: 'full' },
-              { path: 'form', component: FormComponent },
-              {
-                path: 'wizard',
-                component: WizardComponent,
-                children: [
-                  { path: '', redirectTo: 'customer', pathMatch: 'full' },
-                  { path: 'customer', component: CustomerComponent },
-                  { path: 'costs', component: CostsComponent },
-                  { path: 'positions', component: PositionsComponent },
-                  { path: 'preview', component: PreviewComponent },
-                ],
-              },
-            ],
-          },
           { path: 'list', component: InvoiceListComponent },
           { path: 'edit/:id', component: InvoiceEditComponent },
           { path: 'detail/:id', component: InvoiceDetailComponent },
+          {
+            path: 'new',
+            component: InvoiceNewComponent,
+          },
+          {
+            path: 'wizard',
+            component: WizardComponent,
+            children: [
+              { path: '', redirectTo: 'customer', pathMatch: 'full' },
+              { path: 'customer', component: CustomerComponent },
+              { path: 'costs', component: CostsComponent },
+              { path: 'positions', component: PositionsComponent },
+              { path: 'preview', component: PreviewComponent },
+            ],
+          },
+          { path: 'form', component: FormComponent },
         ],
       },
       { path: 'settings', component: SettingsComponent },
