@@ -22,6 +22,7 @@
     "atomic-design": "file:../design-system-workspace/dist/atomic-design",
     "firebase": "^11.7.1",
     "firebase-tools": "^13.35.1",
+    "html2pdf.js": "^0.10.3",
     "rxjs": "~7.8.0",
     "three": "^0.176.0",
     "tslib": "^2.3.0",

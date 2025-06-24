@@ -11,30 +11,30 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class FormComponent {
 
   invoice = {
-  customer: '',
-  date: '',
-  number: '',
-  items: [
-    { description: '', quantity: 1, unitPrice: 0 }
-  ]
-};
+    customer: '',
+    date: '',
+    number: '',
+    items: [
+      { description: '', quantity: 1, unitPrice: 0 }
+    ]
+  };
 
-addItem() {
-  this.invoice.items.push({ description: '', quantity: 1, unitPrice: 0 });
-}
-
-removeItem(index: number) {
-  this.invoice.items.splice(index, 1);
-}
-
-calculateTotal() {
-  return this.invoice.items.reduce((sum, item) =>
-    sum + item.quantity * item.unitPrice, 0);
-}
-
-onSubmit(form: NgForm) {
-  if (form.valid) {
-    console.log('Rechnung:', this.invoice);
+  addItem() {
+    this.invoice.items.push({ description: '', quantity: 1, unitPrice: 0 });
   }
-}
+
+  removeItem(index: number) {
+    this.invoice.items.splice(index, 1);
+  }
+
+  calculateTotal() {
+    return this.invoice.items.reduce((sum, item) =>
+      sum + item.quantity * item.unitPrice, 0);
+  }
+
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      console.log('Rechnung:', this.invoice);
+    }
+  }
 }

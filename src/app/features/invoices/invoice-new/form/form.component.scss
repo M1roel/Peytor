@@ -4,9 +4,7 @@
 
 .invoice-form-wrapper {
   @include m.flexBox(column, flex-start, center);
-  padding: v.$spacing-lg;
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
 
   h2 {
@@ -23,7 +21,6 @@
     border-radius: v.$radius;
     padding: v.$spacing-lg;
     box-shadow: v.$shadow;
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: v.$spacing-md;
@@ -53,6 +50,24 @@
         outline: none;
       }
     }
+  }
+
+  .invoice-section {
+    @include m.flexBox();
+    width: 100%;
+  }
+
+  .invoice-left,
+  .invoice-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-md;
+  }
+
+  .invoice-right {
+    background-color: white;
+    height: 90dvh;
   }
 
   .invoice-item {
