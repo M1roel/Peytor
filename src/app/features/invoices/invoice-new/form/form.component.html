@@ -24,7 +24,7 @@
                     <h4>Position {{ i + 1 }}</h4>
                     <input name="description{{i}}" [(ngModel)]="item.description" required placeholder="Beschreibung">
                     <label for="quantity">Menge</label>
-                    <input name="quantity{{i}}" type="number" [(ngModel)]="item.quantity" required placeholder="Menge">                    
+                    <input name="quantity{{i}}" type="number" [(ngModel)]="item.quantity" required placeholder="Menge">
                     <label for="price">Preis</label>
                     <input name="price{{i}}" type="number" [(ngModel)]="item.unitPrice" required
                         placeholder="Einzelpreis">
@@ -41,7 +41,11 @@
             </form>
         </div>
         <div class="invoice-right">
-            <span>PDF VORSCHAU</span>
+            <div class="invoice-preview">
+                <div class="preview-header"></div>
+                <div class="preview-main"></div>
+                <div class="preview-footer"></div>
+            </div>
         </div>
     </div>
 </section>
