@@ -57,7 +57,7 @@ This project is licensed under a **proprietary license**. **Private use is permi
 ## 🚀 Technologien / Technologies
 
 - Angular (Frontend)
-- Firebase / Firestore (Backend)
+- Supabase (Backend)
 - TypeScript, SCSS, HTML
 - KI-Integration (z. B. zur Vorschlag-Logik)
 - PDF-lib, Chart.js
