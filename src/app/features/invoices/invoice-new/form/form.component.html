@@ -43,7 +43,22 @@
         <div class="invoice-right">
             <div class="invoice-preview">
                 <div class="preview-header"></div>
-                <div class="preview-main"></div>
+                <div class="preview-main">
+                    <p>Rechnung für: {{ invoice.customer }}</p>
+                    <p>Rechnungsdatum: {{ invoice.date | date }}</p>
+                    <p>Rechnungsnummer: {{ invoice.number }}</p>
+
+                    <h4>Positionen:</h4>
+                    <ul>
+                        <li *ngFor="let item of invoice.items">
+                            {{ item.description }} - {{ item.quantity }} x {{ item.unitPrice | currency:'EUR' }}
+                        </li>
+                    </ul>
+
+                    <div class="total">
+                        <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
+                    </div>
+                </div>
                 <div class="preview-footer"></div>
             </div>
         </div>
