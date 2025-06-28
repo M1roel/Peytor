@@ -8,18 +8,8 @@
   <div class="login-form">
     <h2>Login</h2>
     <form (ngSubmit)="onSubmit()">
-      <input
-        type="email"
-        name="email"
-        placeholder="E-Mail"
-        [(ngModel)]="email"
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Passwort"
-        [(ngModel)]="password"
-      />
+      <input type="email" name="email" placeholder="E-Mail" [(ngModel)]="email" />
+      <input type="password" name="password" placeholder="Passwort" [(ngModel)]="password" />
       <div class="error-message" [class.visible]="errorMessage">
         {{ errorMessage }}
       </div>
