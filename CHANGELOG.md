@@ -3,10 +3,21 @@
 Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokumentiert. Jede Version enthält ein Datum und eine kurze Beschreibung der Neuerungen, Bugfixes oder Optimierungen.
 
 ---
+## [0.32] – 2025-06-30
+
+✨ Hinzugefügt
+
+- PDF-Export-Funktion für Rechnungen: Der rechte Bereich der Rechnungsvorschau kann nun als druckfertiges PDF im DIN-A4-Format heruntergeladen werden
+- Umsetzung mit html2canvas und jsPDF für zuverlässige PDF-Generierung direkt im Browser
+- Sauberes Layout für PDF-Ansicht mit fester Breite, Arial-Schriftart, tabellarischem Aufbau und strukturiertem Kopf-/Fußbereich
+
+🎨 Geändert
+
+- .invoice-preview um neue PDF-konforme Layoutregeln erweitert (z. B. width: 794px, font-family: Arial)
 
 ## 
 
-## [0.31] – in Arbeit
+## [0.31] – 2025-06-10
 
 ✨ Hinzugefügt
 

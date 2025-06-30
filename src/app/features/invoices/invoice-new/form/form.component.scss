@@ -19,11 +19,11 @@
     background: v.$glass-bg;
     backdrop-filter: blur(v.$glass-blur);
     border-radius: v.$radius;
-    padding: v.$spacing-lg;
+    padding: v.$spacing-md;
     box-shadow: v.$shadow;
     display: flex;
     flex-direction: column;
-    gap: v.$spacing-md;
+    gap: v.$spacing-sm;
   }
 
   .form-group {
@@ -65,11 +65,99 @@
     gap: v.$spacing-md;
   }
 
-  .invoice-preview {
-    background-color: white;
-    height: 80dvh;
-    color: black;
+  .invoice-left {
+    margin-right: v.$spacing-md;
   }
+
+  .invoice-preview {
+    font-family: Arial, sans-serif !important;
+    font-size: 14px !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    width: 794px;
+    height: 80dvh;
+    overflow: hidden;
+    display: block;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .invoice-info {
+        text-align: right;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .preview-main {
+      flex-grow: 1;
+
+      .customer-info {
+        margin-bottom: 20px;
+      }
+
+      h4 {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid #000;
+        padding-bottom: 5px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+          display: flex;
+          justify-content: space-between;
+
+          span:first-child {
+            flex-grow: 1;
+          }
+
+          span:last-child {
+            min-width: 120px;
+            text-align: right;
+          }
+        }
+      }
+
+      .total {
+        margin-top: 30px;
+        text-align: right;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .preview-footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+  }
+
 
   .invoice-item {
     border: 1px solid color.adjust(v.$surface, $lightness: 20%);

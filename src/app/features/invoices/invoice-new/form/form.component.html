@@ -38,28 +38,42 @@
                 </div>
 
                 <button type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
+                <button class="button-primary" (click)="exportAsPDF()">Als PDF exportieren</button>
+
             </form>
         </div>
         <div class="invoice-right">
-            <div class="invoice-preview">
-                <div class="preview-header"></div>
-                <div class="preview-main">
-                    <p>Rechnung für: {{ invoice.customer }}</p>
-                    <p>Rechnungsdatum: {{ invoice.date | date }}</p>
-                    <p>Rechnungsnummer: {{ invoice.number }}</p>
+            <div class="invoice-preview" id="invoice-preview">
+                <div class="preview-header">
+                    <div class="logo">🏷️ <strong>Peytor</strong></div>
+                    <div class="invoice-info">
+                        <p><strong>Rechnungsnummer:</strong> {{ invoice.number }}</p>
+                        <p><strong>Datum:</strong> {{ invoice.date | date }}</p>
+                    </div>
+                </div>
 
-                    <h4>Positionen:</h4>
+                <div class="preview-main">
+                    <div class="customer-info">
+                        <p><strong>Rechnung an:</strong> {{ invoice.customer }}</p>
+                    </div>
+
+                    <h4>Positionen</h4>
                     <ul>
                         <li *ngFor="let item of invoice.items">
-                            {{ item.description }} - {{ item.quantity }} x {{ item.unitPrice | currency:'EUR' }}
+                            <span>{{ item.description }} ({{ item.quantity }}x)</span>
+                            <span>{{ item.quantity * item.unitPrice | currency:'EUR' }}</span>
                         </li>
                     </ul>
 
                     <div class="total">
-                        <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
+                        Gesamtbetrag: {{ calculateTotal() | currency:'EUR' }}
                     </div>
                 </div>
-                <div class="preview-footer"></div>
+
+                <div class="preview-footer">
+                    <p>Peytor – Rechnungsverwaltung mit ❤️ entwickelt von Peter Pfautsch</p>
+                    <p>Diese Rechnung wurde automatisch generiert und ist auch ohne Unterschrift gültig.</p>
+                </div>
             </div>
         </div>
     </div>
