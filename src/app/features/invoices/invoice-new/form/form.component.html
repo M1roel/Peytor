@@ -37,7 +37,7 @@
                     <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
                 </div>
 
-                <button type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
+                <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
                 <button class="button-primary" (click)="exportAsPDF()">Als PDF exportieren</button>
 
             </form>
@@ -45,7 +45,7 @@
         <div class="invoice-right">
             <div class="invoice-preview" id="invoice-preview">
                 <div class="preview-header">
-                    <div class="logo">🏷️ <strong>Peytor</strong></div>
+                    <div class="logo"><strong>Peytor</strong></div>
                     <div class="invoice-info">
                         <p><strong>Rechnungsnummer:</strong> {{ invoice.number }}</p>
                         <p><strong>Datum:</strong> {{ invoice.date | date }}</p>
@@ -71,7 +71,6 @@
                 </div>
 
                 <div class="preview-footer">
-                    <p>Peytor – Rechnungsverwaltung mit ❤️ entwickelt von Peter Pfautsch</p>
                     <p>Diese Rechnung wurde automatisch generiert und ist auch ohne Unterschrift gültig.</p>
                 </div>
             </div>

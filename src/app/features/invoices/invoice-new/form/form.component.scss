@@ -5,7 +5,6 @@
 .invoice-form-wrapper {
   @include m.flexBox(column, flex-start, center);
   width: 100%;
-  margin: 0 auto;
 
   h2 {
     color: v.$primary;
@@ -54,7 +53,8 @@
 
   .invoice-section {
     @include m.flexBox();
-    width: 100%;
+    width: 100%;    
+    margin: 16px auto;
   }
 
   .invoice-left,
@@ -74,15 +74,10 @@
     font-size: 14px !important;
     background-color: #ffffff !important;
     color: #000000 !important;
-    width: 794px;
     height: 80dvh;
     overflow: hidden;
     display: block;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #ccc;
+    padding: v.$spacing-md;
 
     .preview-header {
       display: flex;
