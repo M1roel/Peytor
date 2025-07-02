@@ -50,7 +50,7 @@ export class FormComponent {
         useCORS: true,
         backgroundColor: '#ffffff',
         scrollX: 0,
-        scrollY: -window.scrollY // wichtig, wenn Seite scrollt
+        scrollY: -window.scrollY
       }).then(canvas => {
         const imgData = canvas.toDataURL('image/jpeg', 1.0);
         const pdf = new jsPDF('p', 'mm', 'a4');
