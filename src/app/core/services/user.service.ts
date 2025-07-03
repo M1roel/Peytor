@@ -1,25 +1,31 @@
 import { Injectable } from '@angular/core';
 import { SupabaseService } from './supabase.service';
 
+export interface UserData {
+  uid: string;
+  name: string;
+  email: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public userData: any = {};
+  private userData: UserData | null = null;
 
   constructor(private supabaseService: SupabaseService) {}
 
-  storeUserData(uid: string, name: string, email: string) {
+  storeUserData(uid: string, name: string, email: string): void {
     this.userData = { uid, name, email };
   }
 
   async addUserToSupabase(): Promise<void> {
-    const { uid, name, email } = this.userData;
-
-    if (!uid || !name || !email) {
-      console.error('User data is incomplete');
+    if (!this.userData) {
+      console.error('User data is missing');
       return;
     }
+
+    const { uid, name, email } = this.userData;
 
     const { error } = await this.supabaseService.getClient()
       .from('users')
@@ -27,9 +33,7 @@ export class UserService {
         {
           id: uid,
           name,
-          email,
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString()
+          email
         }
       ]);
 

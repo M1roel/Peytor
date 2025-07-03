@@ -4,7 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserService } from '../../../core/services/user.service';
-import { User } from '@angular/fire/auth';
+import { SupabaseService } from '../../../core/services/supabase.service';
 import { ErrorMessagesService } from '../../../core/services/error-messages.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
-  user: User | null = null;
   disabled: boolean = true;
   termsAccepted: boolean = false;
   errorMessage: string = '';
@@ -27,6 +26,7 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private userService: UserService,
+    private supabaseService: SupabaseService,
     private errorMessageService: ErrorMessagesService,
     private router: Router
   ) {}
@@ -103,4 +103,22 @@ export class RegisterComponent {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   }
+
+  async testConnection() {
+  try {
+    const { data, error } = await this.supabaseService.getClient().auth.signUp({
+      email: 'test@example.com',
+      password: '12345678'
+    });
+
+    if (error) {
+      console.error('Fehler:', error.message);
+    } else {
+      console.log('Erfolg:', data);
+    }
+  } catch (err) {
+    console.error('Verbindungsfehler:', err);
+  }
+}
+
 }
