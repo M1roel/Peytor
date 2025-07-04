@@ -3,6 +3,25 @@
 Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokumentiert. Jede Version enthält ein Datum und eine kurze Beschreibung der Neuerungen, Bugfixes oder Optimierungen.
 
 ---
+## [0.4] – 2025-07-04
+
+✨ Hinzugefügt
+
+- Umstellung auf eigene Supabase-Instanz: Peytor verwendet nun ein selbst gehostetes Supabase-Backend auf einem Server bei einem deutschen Hoster
+- Supabase-Selfhosting via Docker-Setup inkl. PostgreSQL, Auth, Storage, Realtime und Studio
+- Eigener JWT Secret + manuell generierte `anon` und `service_role` Keys für sichere API-Nutzung
+- Automatische Erstellung von User-Datensätzen in der Tabelle `users` direkt nach erfolgreicher Registrierung
+- SQL-Trigger für automatische Pflege von `created_at` und `updated_at` Timestamps bei Nutzern
+- Supabase Policies eingerichtet: Authentifizierte Nutzer dürfen nur eigene Daten einfügen
+- **Row-Level Security aktiviert**: Zugriff auf `users`-Tabelle durch Policies eingeschränkt – authentifizierte Nutzer dürfen nur ihre eigenen Daten einfügen und lesen
+
+🎨 Geändert
+
+- Registrierung verarbeitet Supabase-Session jetzt korrekt über `auth.getUser()` und übergibt ID an `users`-Tabelle
+
+
+##
+
 ## [0.32] – 2025-06-30
 
 ✨ Hinzugefügt
@@ -22,8 +41,6 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 ✨ Hinzugefügt
 
 - Registrierung via Supabase: E-Mail + Passwort mit Auth-API
-- Speicherung von Benutzerdaten (Name und E-Mail) in der `users`-Tabelle (Supabase) nach erfolgreicher Registrierung
-- `id` des authentifizierten Nutzers wird als Primärschlüssel in der Tabelle `users` verwendet (Verknüpfung mit `auth.users.id`)
 - Neuer `UserService` zur Verwaltung von Nutzerprofilen in Supabase – vorbereitet für spätere Erweiterungen (z. B. Rollen, Einstellungen)
 - Grundstruktur für Supabase-Integration (Service, Auth-API, environment)
 
