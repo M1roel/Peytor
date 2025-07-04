@@ -5,7 +5,7 @@ import { SupabaseService } from './supabase.service';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(private supabaseService: SupabaseService) { }
 
   async createUser(email: string, password: string) {
     const { data, error } = await this.supabaseService
@@ -16,6 +16,16 @@ export class AuthService {
       });
 
     if (error) throw error;
+
+    if (!data.session) {
+      const { error: loginError } = await this.supabaseService.getClient().auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (loginError) throw loginError;
+    }
+
     return data;
   }
 

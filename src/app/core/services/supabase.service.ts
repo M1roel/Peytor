@@ -12,7 +12,8 @@ export class SupabaseService {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey, {
       auth: {
         persistSession: true,
-        autoRefreshToken: true
+        autoRefreshToken: true,
+        storage: localStorage
       }
     });
   }

@@ -13,7 +13,7 @@ export interface UserData {
 export class UserService {
   private userData: UserData | null = null;
 
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(private supabaseService: SupabaseService) { }
 
   storeUserData(uid: string, name: string, email: string): void {
     this.userData = { uid, name, email };
@@ -25,13 +25,23 @@ export class UserService {
       return;
     }
 
-    const { uid, name, email } = this.userData;
+    const { name, email } = this.userData;
+
+    const {
+      data: { user },
+      error: userError
+    } = await this.supabaseService.getClient().auth.getUser();
+
+    if (userError || !user) {
+      console.error('Fehler beim Abrufen des eingeloggten Benutzers:', userError?.message);
+      return;
+    }
 
     const { error } = await this.supabaseService.getClient()
       .from('users')
       .insert([
         {
-          id: uid,
+          id: user.id,
           name,
           email
         }
