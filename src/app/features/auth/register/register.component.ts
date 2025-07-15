@@ -29,7 +29,7 @@ export class RegisterComponent {
     private supabaseService: SupabaseService,
     private errorMessageService: ErrorMessagesService,
     private router: Router
-  ) {}
+  ) { }
 
   async onSubmit() {
     this.errorMessage = '';
@@ -105,20 +105,20 @@ export class RegisterComponent {
   }
 
   async testConnection() {
-  try {
-    const { data, error } = await this.supabaseService.getClient().auth.signUp({
-      email: 'test@example.com',
-      password: '12345678'
-    });
+    try {
+      const { data, error } = await this.supabaseService.getClient().auth.signUp({
+        email: 'test@example.com',
+        password: '12345678'
+      });
 
-    if (error) {
-      console.error('Fehler:', error.message);
-    } else {
-      console.log('Erfolg:', data);
+      if (error) {
+        console.error('Fehler:', error.message);
+      } else {
+        console.log('Erfolg:', data);
+      }
+    } catch (err) {
+      console.error('Verbindungsfehler:', err);
     }
-  } catch (err) {
-    console.error('Verbindungsfehler:', err);
   }
-}
 
 }
