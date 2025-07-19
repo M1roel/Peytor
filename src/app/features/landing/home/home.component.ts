@@ -5,7 +5,7 @@ import * as THREE from 'three';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [RouterModule],  
+  imports: [RouterModule],
   styleUrls: ['./home.component.scss'],
   standalone: true,
 })
@@ -28,7 +28,7 @@ export class HomeComponent implements AfterViewInit {
     window.addEventListener('mousemove', (event) => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    });    
+    });
     const canvas = this.canvasRef.nativeElement as HTMLCanvasElement;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(

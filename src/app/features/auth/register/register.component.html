@@ -14,48 +14,20 @@
     <h2>Jetzt registrieren</h2>
     <form (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Name" name="name" [(ngModel)]="name" />
-      <input
-        type="email"
-        placeholder="E-Mail"
-        name="email"
-        [(ngModel)]="email"
-      />
-      <input
-        type="password"
-        placeholder="Passwort"
-        name="password"
-        [(ngModel)]="password"
-      />
-      <input
-        type="password"
-        placeholder="Passwort wiederholen"
-        name="confirmPassword"
-        [(ngModel)]="confirmPassword"
-      />
+      <input type="email" placeholder="E-Mail" name="email" [(ngModel)]="email" />
+      <input type="password" placeholder="Passwort" name="password" [(ngModel)]="password" />
+      <input type="password" placeholder="Passwort wiederholen" name="confirmPassword" [(ngModel)]="confirmPassword" />
       <div class="error-message" [class.visible]="errorMessage">
         {{ errorMessage }}
       </div>
-      <button
-        id="reg-btn"
-        type="submit"
-        class="button-primary"
-        [disabled]="!termsAccepted || !name || !email || !password || !confirmPassword"
-      >
+      <button id="reg-btn" type="submit" class="button-primary"
+        [disabled]="!termsAccepted || !name || !email || !password || !confirmPassword">
         Konto erstellen
       </button>
       <div class="check-terms">
-        <input
-          type="checkbox"
-          name="terms"
-          [(ngModel)]="termsAccepted"
-          required
-        />
-        <label for="terms"
-          >Ich akzeptiere die
-          <a routerLink="/policy" target="_blank"
-            >Datenschutzbestimmungen</a
-          ></label
-        >
+        <input type="checkbox" name="terms" [(ngModel)]="termsAccepted" required />
+        <label for="terms">Ich akzeptiere die
+          <a routerLink="/policy" target="_blank">Datenschutzbestimmungen</a></label>
       </div>
     </form>
     <p class="login-hint">
