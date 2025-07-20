@@ -37,7 +37,7 @@ export class RegisterComponent {
     if (!this.validateForm()) {
       return;
     }
-
+    
     try {
       const result = await this.authService.createUser(
         this.email,

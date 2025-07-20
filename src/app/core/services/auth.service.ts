@@ -5,6 +5,7 @@ import { SupabaseService } from './supabase.service';
   providedIn: 'root'
 })
 export class AuthService {
+
   constructor(private supabaseService: SupabaseService) { }
 
   async createUser(email: string, password: string) {
