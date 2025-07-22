@@ -3,7 +3,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { CustomersComponent } from './features/customers/customers.component';
 import { CustomerDetailComponent } from './features/customers/customer-detail/customer-detail.component';
-import { CustomerListComponent } from './features/customers/customer-list/customer-list.component';
+import { CustomerAddComponent } from './features/customers/customer-add/customer-add.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { HomeComponent } from './features/landing/home/home.component';
 import { PricingComponent } from './features/landing/pricing/pricing.component';
@@ -48,12 +48,11 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      {
-        path: 'customers',
+      { path: 'customers',
         component: CustomersComponent,
         children: [
-          { path: '', redirectTo: 'list', pathMatch: 'full' },
-          { path: 'list', component: CustomerListComponent },
+          { path: '', redirectTo: '', pathMatch: 'full' },
+          { path: 'add', component: CustomerAddComponent },
           { path: 'detail/:id', component: CustomerDetailComponent },
         ],
       },
