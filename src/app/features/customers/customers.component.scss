@@ -1,0 +1,17 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+
+
+
+.customer-main {
+    padding: 2rem;
+} 
+
+.customer-header {
+   @include m.flexBox(column, space-between, flex-start);
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    } 
+} 
