@@ -24,7 +24,7 @@ form {
       color: v.$text-secondary;
     }
 
-    input, textarea {
+    input, textarea, select {
       padding: v.$spacing-sm;
       border-radius: v.$radius;
       border: 1px solid color.adjust(v.$surface, $lightness: 20%);
