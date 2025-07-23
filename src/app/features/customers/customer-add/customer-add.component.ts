@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgForm, FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Address {
   street: string;
@@ -14,7 +14,8 @@ interface Customer {
   customer_number: string;
   company_name: string;
   contact_person: string;
-  vat_id: string;
+  vat_language: string;
+  vat_id: number;
   email: string;
   phone: string;
   industry: string;
@@ -27,30 +28,48 @@ interface Customer {
 
 @Component({
   selector: 'app-customer-add',
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, ReactiveFormsModule],
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.scss'
 })
 export class CustomerAddComponent {
-  
-  customer: Customer = {
-    customer_number: '',
-    company_name: '',
-    contact_person: '',
-    vat_id: '',
-    email: '',
-    phone: '',
-    industry: '',
-    website: '',
-    language: '',
-    is_active: true,
-    address: {
-      street: '',
-      house_number: '',
-      zip_code: '',
-      city: '',
-      country: ''
-    },
-    notes: ''
-  };
+  customerForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngonInit() {
+    this.customerForm = this.fb.group({
+      customer_number: [''],
+      company_name: ['', Validators.required],
+      contact_person: [''],
+      vat_language: ['', Validators.required],
+      vat_id: ['', [Validators.required, Validators.pattern('[0-9]{9}$')]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: [''],
+      industry: [''],
+      website: [''],
+      language: ['de'],
+      is_active: [true],
+      address: this.fb.group({
+        street: ['', Validators.required],
+        house_number: ['', Validators.required],
+        zip_code: ['', Validators.required],
+        city: ['', Validators.required],
+        country: ['', Validators.required],
+      }),
+      notes: ['']
+    });
+  }
+
+  onSubmit() {
+    if (this.customerForm.valid) {
+      const customer: Customer = this.customerForm.value;
+      console.log('Customer data submitted:', customer);
+      // Hier Supabase Service Funktionen aufrufen, um den Kunden zu speichern
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 }
+
