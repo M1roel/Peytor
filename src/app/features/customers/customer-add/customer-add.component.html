@@ -9,14 +9,14 @@
             <label for="company_name">Firmenname</label>
             <input id="company_name" formControlName="company_name" type="text" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div class="form-group" formGroupName="address">
             <h3>Adresse</h3>
             <label for="street">Straße</label>
             <input id="street" formControlName="street" type="text" class="form-control">
             <label for="house_number">Hausnummer</label>
             <input id="house_number" formControlName="house_number" type="text" class="form-control">
-            <label for="postal_code">Postleitzahl</label>
-            <input id="postal_code" formControlName="postal_code" type="text" class="form-control">
+            <label for="zip_code">Postleitzahl</label>
+            <input id="zip_code" formControlName="zip_code" type="text" class="form-control">
             <label for="city">Stadt</label>
             <input id="city" formControlName="city" type="text" class="form-control">
             <label for="country">Land</label>
@@ -24,8 +24,8 @@
         </div>
         <div class="form-group">
             <h3>Kontakt</h3>
-            <label for="customer_language">Sprache</label>
-            <select id="customer_language" formControlName="customer_language" class="form-control">
+            <label for="language">Sprache</label>
+            <select id="language" formControlName="language" class="form-control">
                 <option value="de">Deutsch</option>
                 <option value="en">Englisch</option>
                 <option value="fr">Französisch</option>
@@ -43,9 +43,9 @@
                 <option value="it">IT</option>
             </select>
             <label for="vat_id">USt-IdNr.</label>
-            <input id="vat_id" formControlName="vat_id" type="text" class="form-control" required>
+            <input id="vat_id" formControlName="vat_id" type="text" class="form-control">
             <label for="email">E-Mail</label>
-            <input id="email" formControlName="email" type="email" class="form-control" required>
+            <input id="email" formControlName="email" type="email" class="form-control">
             <label for="phone">Telefon</label>
             <input id="phone" formControlName="phone" type="text" class="form-control">
             <label for="industry">Branche</label>
@@ -53,5 +53,6 @@
             <label for="notes">Notizen</label>
             <textarea id="notes" formControlName="notes" class="form-control"></textarea>
         </div>
+        <button class="button-primary" type="submit">Kunden speichern</button>
     </form>
 </section>

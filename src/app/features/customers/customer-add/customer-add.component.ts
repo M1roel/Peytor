@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomerService } from '../../../core/services/customer.service';
 
 interface Address {
   street: string;
@@ -35,10 +36,10 @@ interface Customer {
 export class CustomerAddComponent {
   customerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private customerService: CustomerService) {;
   }
 
-  ngonInit() {
+  ngOnInit() {
     this.customerForm = this.fb.group({
       customer_number: [''],
       company_name: ['', Validators.required],
@@ -62,14 +63,16 @@ export class CustomerAddComponent {
     });
   }
 
-  onSubmit() {
-    if (this.customerForm.valid) {
-      const customer: Customer = this.customerForm.value;
-      console.log('Customer data submitted:', customer);
-      // Hier Supabase Service Funktionen aufrufen, um den Kunden zu speichern
-    } else {
-      console.log('Form is invalid');
-    }
+  async onSubmit() {
+      const customer = this.customerForm.value;
+      try {
+        await this.customerService.storeCustomerData(
+          customer.customer_number,
+          customer.company_name
+        );
+      } catch (error) {
+        console.error('Error storing customer data:', error);
+      }
   }
 }
 
