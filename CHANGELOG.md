@@ -3,6 +3,19 @@
 Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokumentiert. Jede Version enthält ein Datum und eine kurze Beschreibung der Neuerungen, Bugfixes oder Optimierungen.
 
 ---
+
+## [0.41] – 2025-07-24
+
+✨ Hinzugefügt
+
+- Funktionsfähige Kundenverwaltung implementiert
+- Kunden anlegen mit Kundennummer und Firmenname (via Reactive Forms)
+- Speicherung in Supabase mit Row-Level-Security: Benutzer sehen nur ihre eigenen Kunden
+- Kundenliste mit Anzeige von Firma und Kundennummer
+- UI-Komponenten für CustomerAdd und CustomerList
+- RLS-konforme Policies und user_id-Zuweisung beim Insert integriert
+
+---
 ## [0.4] – 2025-07-04
 
 ✨ Hinzugefügt
@@ -18,7 +31,6 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 🎨 Geändert
 
 - Registrierung verarbeitet Supabase-Session jetzt korrekt über `auth.getUser()` und übergibt ID an `users`-Tabelle
-
 
 ##
 
@@ -73,39 +85,27 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
 ✨ Hinzugefügt
 
-    - Formularvalidierung für Registrierungsformular inkl. Passwortabgleich und E-Mail-Formatprüfung
-
-    - Fehlermeldungen bei ungültiger Eingabe werden dynamisch unterhalb der Felder angezeigt
-
-    - Checkbox zur Datenschutzbestätigung integriert
-
-    - Toast-Benachrichtigung bei erfolgreicher Registrierung mit Slide-in-Animation
-
-    - Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Passwort
-
-    - Vorbereitung für Firestore-Nutzerprofil (users/{uid}) inkl. AppUser-Modell
-
-    - Button-Zustand disabled mit grauem Stil, reduziertem Kontrast und deaktivierter Interaktion
-
-    - Logo: Hover-Effekt mit Farbverlauf (Gradient) für modernen Look implementiert
+- Formularvalidierung für Registrierungsformular inkl. Passwortabgleich und E-Mail-Formatprüfung
+- Fehlermeldungen bei ungültiger Eingabe werden dynamisch unterhalb der Felder angezeigt
+- Checkbox zur Datenschutzbestätigung integriert
+- Toast-Benachrichtigung bei erfolgreicher Registrierung mit Slide-in-Animation
+- Anbindung an Firebase Authentication - sichere Nutzerregistrierung mit E-Mail & Passwort
+- Vorbereitung für Firestore-Nutzerprofil (users/{uid}) inkl. AppUser-Modell
+- Button-Zustand disabled mit grauem Stil, reduziertem Kontrast und deaktivierter Interaktion
+- Logo: Hover-Effekt mit Farbverlauf (Gradient) für modernen Look implementiert
 
 🎨 Geändert
 
-    - Layout-Anpassung der Registrierungsseite für bessere Lesbarkeit und mobile Nutzung
-
-    - Button- und Input-Design angepasst (Hover-Zustände, Akzentfarben, moderne Optik)
-
-    - Responsives Verhalten des Headers optimiert (Burger-Menü und Navigation)
-
-    - Dropdown-Menü des Burgers mit Glasmorphism-Effekt versehen (Blur, Transparenz, Schatten)
+- Layout-Anpassung der Registrierungsseite für bessere Lesbarkeit und mobile Nutzung
+- Button- und Input-Design angepasst (Hover-Zustände, Akzentfarben, moderne Optik)
+- Responsives Verhalten des Headers optimiert (Burger-Menü und Navigation)
+- Dropdown-Menü des Burgers mit Glasmorphism-Effekt versehen (Blur, Transparenz, Schatten)
 
 🐛 Behoben
 
-    - Problem behoben, bei dem der Login-Button bei Fehleranzeige verschoben wurde
-
-    - Fehlerhafte Angular-Klasse .ng-trigger entfernt und durch funktionale Animation ersetzt
-
-    - Main-Bereich verschiebt sich jetzt korrekt, wenn die Sidebar geschlossen wird - position: fixed in Sidebar entfernt, dadurch nimmt sie wieder am Layoutfluss teil
+- Problem behoben, bei dem der Login-Button bei Fehleranzeige verschoben wurde
+- Fehlerhafte Angular-Klasse .ng-trigger entfernt und durch funktionale Animation ersetzt
+- Main-Bereich verschiebt sich jetzt korrekt, wenn die Sidebar geschlossen wird - position: fixed in Sidebar entfernt, dadurch nimmt sie wieder am Layoutfluss teil
 
 ---
 
@@ -128,4 +128,4 @@ Jede Eintragung folgt diesem Aufbau:
 
 ---
 
-Letztes Update: *28. Mai 2025*
+Letztes Update: *27. Juli 2025*
