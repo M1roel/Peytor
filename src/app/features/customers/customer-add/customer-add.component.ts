@@ -36,8 +36,7 @@ interface Customer {
 export class CustomerAddComponent {
   customerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService) {;
-  }
+  constructor(private fb: FormBuilder, private customerService: CustomerService) { }
 
   ngOnInit() {
     this.customerForm = this.fb.group({
@@ -66,10 +65,7 @@ export class CustomerAddComponent {
   async onSubmit() {
       const customer = this.customerForm.value;
       try {
-        await this.customerService.storeCustomerData(
-          customer.customer_number,
-          customer.company_name
-        );
+        await this.customerService.storeCustomerData(customer);
       } catch (error) {
         console.error('Error storing customer data:', error);
       }
