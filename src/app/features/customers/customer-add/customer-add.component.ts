@@ -3,14 +3,6 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerService } from '../../../core/services/customer.service';
 
-interface Address {
-  street: string;
-  house_number: string;
-  zip_code: string;
-  city: string;
-  country: string;
-}
-
 interface Customer {
   customer_number: string;
   company_name: string;
@@ -23,8 +15,12 @@ interface Customer {
   website: string;
   language: string;
   is_active: boolean;
-  address: Address;
-  notes: string;
+  notes: string;  
+  street: string;
+  house_number: string;
+  zip_code: string;
+  city: string;
+  country: string;
 }
 
 @Component({
@@ -51,24 +47,22 @@ export class CustomerAddComponent {
       website: [''],
       language: ['de'],
       is_active: [true],
-      address: this.fb.group({
-        street: ['', Validators.required],
-        house_number: ['', Validators.required],
-        zip_code: ['', Validators.required],
-        city: ['', Validators.required],
-        country: ['', Validators.required],
-      }),
+      street: ['', Validators.required],
+      house_number: ['', Validators.required],
+      zip_code: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
       notes: ['']
     });
   }
 
   async onSubmit() {
-      const customer = this.customerForm.value;
-      try {
-        await this.customerService.storeCustomerData(customer);
-      } catch (error) {
-        console.error('Error storing customer data:', error);
-      }
+    const customer = this.customerForm.value;
+    try {
+      await this.customerService.storeCustomerData(customer);
+    } catch (error) {
+      console.error('Error storing customer data:', error);
+    }
   }
 }
 

@@ -20,16 +20,10 @@ export class CustomerService {
     const { data: { user }, error: authErr } = await supabase.auth.getUser();
     if (authErr || !user) throw new Error('Nicht eingeloggt.');
 
-    const payload: any = { user_id: user.id };
-
-    if (customer.address) {
-      Object.assign(payload, customer.address);
-      delete customer.address;
-    }
-
-    Object.entries(customer).forEach(([k, v]) => {
-      if (v !== null && v !== undefined && v !== '') payload[k] = v;
-    });
+    const payload = {
+    user_id: user.id,
+    ...customer
+  };
 
     const { error } = await supabase
       .from('customers')
