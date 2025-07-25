@@ -34,16 +34,17 @@
             </select>
             <label for="contact_person">Ansprechpartner</label>
             <input id="contact_person" formControlName="contact_person" type="text" class="form-control">
-            <label for="vat_language">USt-IdNr. Sprache</label>
-            <select id="vat_language" formControlName="vat_language" class="form-control">>
-                <option value="de">DE</option>
-                <option value="en">EN</option>
-                <option value="fr">FR</option>
-                <option value="es">ES</option>
-                <option value="it">IT</option>
-            </select>
-            <label for="vat_id">USt-IdNr.</label>
-            <input id="vat_id" formControlName="vat_id" type="text" class="form-control">
+            <label for="vat_language">USt-IdNr.</label>
+            <div class="vat-container">
+                <select id="vat_language" formControlName="vat_language" class="form-control">>
+                    <option value="de">DE</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                    <option value="it">IT</option>
+                </select>
+                <input id="vat_id" formControlName="vat_id" type="text" class="form-control">
+            </div>
             <label for="email">E-Mail</label>
             <input id="email" formControlName="email" type="email" class="form-control">
             <label for="phone">Telefon</label>

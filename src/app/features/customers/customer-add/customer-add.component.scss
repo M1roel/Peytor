@@ -38,3 +38,35 @@ form {
       }
     }
   }
+
+  .vat-container {
+    display: flex;
+    flex-direction: row;
+
+    label {
+      font-weight: 500;
+      font-size: v.$font-size-sm;
+      color: v.$text-secondary;
+    }
+
+    select {
+      min-width: 60px;
+      width: 10%;
+      padding: v.$spacing-sm;
+      border-radius: 18px 0 0 18px;
+      border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+      background: v.$surface;
+      color: v.$text-primary;
+      font-size: v.$font-size-base;
+
+      &:focus {
+        border-color: v.$primary;
+        outline: none;
+      }
+    }
+
+    input {     
+      width: 90%; 
+      border-radius: 0 18px 18px 0;
+    }
+  } 
