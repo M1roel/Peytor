@@ -1,72 +1,91 @@
-@use '../../../../styles/variables.scss' as v;
-@use '../../../../styles/mixins.scss' as m;
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
 @use "sass:color";
 
 form {
-    background: v.$glass-bg;
-    backdrop-filter: blur(v.$glass-blur);
+  background: v.$glass-bg;
+  backdrop-filter: blur(v.$glass-blur);
+  border-radius: v.$radius;
+  padding: v.$spacing-md;
+  box-shadow: v.$shadow;
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-sm;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: 500;
+    font-size: v.$font-size-sm;
+    margin-bottom: v.$spacing-xs;
+    color: v.$text-secondary;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: v.$spacing-sm;
     border-radius: v.$radius;
-    padding: v.$spacing-md;
-    box-shadow: v.$shadow;
-    display: flex;
-    flex-direction: column;
-    gap: v.$spacing-sm;
-  }
+    border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+    background: v.$surface;
+    color: v.$text-primary;
+    font-size: v.$font-size-base;
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      font-weight: 500;
-      font-size: v.$font-size-sm;
-      margin-bottom: v.$spacing-xs;
-      color: v.$text-secondary;
-    }
-
-    input, textarea, select {
-      padding: v.$spacing-sm;
-      border-radius: v.$radius;
-      border: 1px solid color.adjust(v.$surface, $lightness: 20%);
-      background: v.$surface;
-      color: v.$text-primary;
-      font-size: v.$font-size-base;
-
-      &:focus {
-        border-color: v.$primary;
-        outline: none;
-      }
+    &:focus {
+      border-color: v.$primary;
+      outline: none;
     }
   }
+}
 
-  .vat-container {
-    display: flex;
-    flex-direction: row;
+.vat-container {
+  display: flex;
+  flex-direction: row;
 
-    label {
-      font-weight: 500;
-      font-size: v.$font-size-sm;
-      color: v.$text-secondary;
+  label {
+    font-weight: 500;
+    font-size: v.$font-size-sm;
+    color: v.$text-secondary;
+  }
+
+  select {
+    min-width: 60px;
+    width: 10%;
+    padding: v.$spacing-sm;
+    border-radius: 18px 0 0 18px;
+    border: 1px solid color.adjust(v.$surface, $lightness: 20%);
+    background: v.$surface;
+    color: v.$text-primary;
+    font-size: v.$font-size-base;
+
+    &:focus {
+      border-color: v.$primary;
+      outline: none;
     }
+  }
 
-    select {
-      min-width: 60px;
-      width: 10%;
-      padding: v.$spacing-sm;
-      border-radius: 18px 0 0 18px;
-      border: 1px solid color.adjust(v.$surface, $lightness: 20%);
-      background: v.$surface;
-      color: v.$text-primary;
-      font-size: v.$font-size-base;
+  input {
+    width: 90%;
+    border-radius: 0 18px 18px 0;
+  }
+}
 
-      &:focus {
-        border-color: v.$primary;
-        outline: none;
-      }
-    }
+.street-fields {
+  @include m.flexBox(row, flex-start, flex-start);
 
-    input {     
-      width: 90%; 
-      border-radius: 0 18px 18px 0;
-    }
-  } 
+  .adress-street input {
+    border-radius: 18px 0 0 18px;
+  }
+
+  .adress-number input {
+    border-radius: 0 18px 18px 0;
+  }
+}
+
+.adress-number,
+.adress-street {
+  @include m.flexBox(column, flex-start, flex-start);
+}

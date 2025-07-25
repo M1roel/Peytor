@@ -11,10 +11,16 @@
         </div>
         <div class="form-group">
             <h3>Adresse</h3>
-            <label for="street">Straße</label>
-            <input id="street" formControlName="street" type="text" class="form-control">
-            <label for="house_number">Hausnummer</label>
-            <input id="house_number" formControlName="house_number" type="text" class="form-control">
+            <div class="street-fields">
+                <div class="adress-street">
+                    <label for="street">Straße</label>
+                    <input id="street" formControlName="street" type="text" class="form-control">
+                </div>
+                <div class="adress-number">
+                    <label for="house_number">Nr.</label>
+                    <input id="house_number" formControlName="house_number" type="text" class="form-control">
+                </div>
+            </div>
             <label for="zip_code">Postleitzahl</label>
             <input id="zip_code" formControlName="zip_code" type="text" class="form-control">
             <label for="city">Stadt</label>
