@@ -73,8 +73,8 @@ app-footer {
 
 app-register,
 app-login {
-   @include m.flexBox(); 
-} 
+  @include m.flexBox();
+}
 
 main {
   flex: 1 0 auto;
@@ -101,7 +101,7 @@ main {
     color: white;
     text-decoration: none;
   }
-  
+
   &:hover {
     background: color.adjust(v.$primary, $lightness: 10%);
   }
@@ -136,7 +136,7 @@ main {
   padding: 1rem 1.5rem;
   border-radius: v.$radius;
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   transition: right 0.5s ease;
   z-index: 999;
 }
@@ -144,4 +144,3 @@ main {
 .toast.visible {
   right: 4rem;
 }
-
