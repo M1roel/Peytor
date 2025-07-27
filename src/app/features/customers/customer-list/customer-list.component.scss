@@ -3,25 +3,28 @@
 
 .customer-list-main {
 
-    li {
-        &.customer-list-item {
-            @include m.flexBox(row, flex-start, space-between);
-            padding: v.$spacing-sm;
-            border-bottom: 1px solid v.$surface;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+            border-bottom: 1px solid v.$primary;
             cursor: pointer;
-            width: 100%;
-    
-            &:hover {
+        }
+
+        th {
             background-color: v.$glass-bg;
-            }
-    
-            .customer-name {
-            font-weight: bold;
-            color: v.$text-primary;
-            }
-    
-            .customer-email {
-            color: v.$text-secondary;
+            color: v.$text-primary;            
+        }
+
+        tbody tr {
+            cursor: pointer;
+
+            &:hover {
+                background-color: v.$accent;
             }
         }
     }

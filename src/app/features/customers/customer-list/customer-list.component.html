@@ -2,9 +2,18 @@
     <h2>Kundenliste</h2>
     <p *ngIf="customers.length === 0">Keine Kunden gefunden.</p>
     <p *ngIf="customers.length > 0">Anzahl der Kunden: {{ customers.length }}</p>
-    <ul>
-        <li class="customer-list-item" *ngFor="let customer of customers" (click)="showDetails(customer)">
-            {{ customer.company_name }} ({{ customer.customer_number }})
-        </li>
-    </ul>
+    <table>
+        <thead>
+            <tr>                
+                <th>Kundennummer</th>
+                <th>Unternehmen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers" (click)="showDetails(customer)">
+                <td>{{ customer.customer_number }}</td>
+                <td>{{ customer.company_name }}</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
