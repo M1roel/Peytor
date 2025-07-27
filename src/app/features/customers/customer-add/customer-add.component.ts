@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerService } from '../../../core/services/customer.service';
 
@@ -25,14 +25,15 @@ interface Customer {
 
 @Component({
   selector: 'app-customer-add',
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.scss'
 })
 export class CustomerAddComponent {
-  customerForm!: FormGroup;
+  customerForm!: FormGroup;  
+  showSuccess: boolean = false;
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService) { }
+  constructor(private fb: FormBuilder, private customerService: CustomerService, private router: Router) { }
 
   ngOnInit() {
     this.customerForm = this.fb.group({
@@ -60,6 +61,11 @@ export class CustomerAddComponent {
     const customer = this.customerForm.value;
     try {
       await this.customerService.storeCustomerData(customer);
+      this.showSuccess = true;
+      setTimeout(() => {
+        this.showSuccess = false;
+        this.router.navigate(['app/customers/list']);
+      }, 1500);
     } catch (error) {
       console.error('Error storing customer data:', error);
     }

@@ -3,7 +3,7 @@
 @use "sass:color";
 
 form {
-  width: 50%;
+  width: 100%;
   max-width: 500px;
   background: v.$glass-bg;
   backdrop-filter: blur(v.$glass-blur);
@@ -13,6 +13,11 @@ form {
   display: flex;
   flex-direction: column;
   gap: v.$spacing-sm;
+
+  @media (max-width: 1000px) {
+    width: 90%;
+    max-width: none;
+  }
 }
 
 .form-group {
