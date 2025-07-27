@@ -1,5 +1,5 @@
-@use '../../../styles/variables.scss' as v;
-@use '../../../styles/mixins.scss' as m;
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .sidebar {
   width: 240px;
@@ -10,6 +10,14 @@
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   transition: width 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 64px;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+  }
 
   &.closed {
     width: 64px;
@@ -30,26 +38,63 @@
     font-size: 1.5rem;
     cursor: pointer;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   nav {
-   @include m.flexBox(column);
-  } 
+    @include m.flexBox(column);
 
-  nav a {
-    @include m.flexBox(column); 
-    color: v.$text-primary;
-    text-decoration: none;
-    padding: 0.75rem 1rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background 0.2s ease;
-
-    &.active,
-    &:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: v.$accent;
+    .small {
+      display: none;
     }
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      height: 100%;
+
+      .big {
+        display: none;
+      }
+
+      .small {
+        @include m.flexBox(row, space-around);
+        width: 100%;
+
+        a {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: v.$radius;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+}
+
+nav a {
+  @include m.flexBox(column);
+  color: v.$text-primary;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+
+  &.active,
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: v.$accent;
   }
 }

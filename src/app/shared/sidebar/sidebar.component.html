@@ -1,10 +1,29 @@
 <aside class="sidebar" [class.closed]="!isOpen">
-    <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
+  <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
   <nav *ngIf="isOpen">
-    <a routerLink="/app/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/app/invoices" routerLinkActive="active">Rechnungen</a>
-    <a routerLink="/app/customers" routerLinkActive="active">Kunden</a>
-    <a routerLink="/app/settings" routerLinkActive="active">Einstellungen</a>
-    <button class="button-primary" (click)="logout()">Abmelden</button>
+    <div class="big">
+      <a routerLink="/app/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/app/invoices" routerLinkActive="active">Rechnungen</a>
+      <a routerLink="/app/customers" routerLinkActive="active">Kunden</a>
+      <a routerLink="/app/settings" routerLinkActive="active">Einstellungen</a>
+      <button class="button-primary" (click)="logout()">Abmelden</button>
+    </div>
+    <div class="small">
+  <a routerLink="/app/dashboard" routerLinkActive="active">
+    <mat-icon>dashboard</mat-icon>
+  </a>
+  <a routerLink="/app/invoices" routerLinkActive="active">
+    <mat-icon>receipt_long</mat-icon>
+  </a>
+  <a routerLink="/app/customers" routerLinkActive="active">
+    <mat-icon>groups</mat-icon>
+  </a>
+  <a routerLink="/app/settings" routerLinkActive="active">
+    <mat-icon>settings</mat-icon>
+  </a>
+  <button class="button-primary" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</div>
   </nav>
 </aside>
