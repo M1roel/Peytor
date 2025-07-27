@@ -7,9 +7,9 @@
         <tr>
           <th>#</th>
           <th>Kunde</th>
-          <th>Datum</th>
-          <th>Status</th>
-          <th>Betrag</th>
+          <th class="invoice-date">Datum</th>
+          <th class="invoice-status">Status</th>
+          <th class="invoice-amount">Betrag</th>
           <th>Aktionen</th>
         </tr>
       </thead>
@@ -17,11 +17,11 @@
         <tr *ngFor="let invoice of invoices">
           <td>{{ invoice.number }}</td>
           <td>{{ invoice.customer }}</td>
-          <td>{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
-          <td>
+          <td class="invoice-date">{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
+          <td class="invoice-status">
             <span [ngClass]="invoice.status">{{ invoice.status }}</span>
           </td>
-          <td>{{ invoice.amount | currency:'EUR' }}</td>
+          <td class="invoice-amount">{{ invoice.amount | currency:'EUR' }}</td>
           <td class="actions">
             <button class="button-primary" (click)="view(invoice.id)">Ansehen</button>
             <button class="button-primary" (click)="edit(invoice.id)">Bearbeiten</button>

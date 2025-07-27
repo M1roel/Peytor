@@ -1,39 +1,47 @@
-@use '../../../../styles/variables.scss' as v;
+@use "../../../../styles/variables.scss" as v;
 
 .invoice-list {
-    padding: 2rem;
-  
-    h2 {
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
+  padding: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-  
-      th, td {
-        padding: 0 1rem; 
-        text-align: left;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-  
-      .actions button {
-        margin-right: 0.5rem;
-        margin-left: 0;
-      }
-  
-      .delete {
-        color: red;
-      }
+
+    .actions button {
+      margin-right: 0.5rem;
+      margin-left: 0;
     }
-  
-    .bezahlt {
-      color: v.$accent;
-    }
-  
-    .offen {
-      color: orange;
+
+    .delete {
+      color: red;
     }
   }
-  
+
+  .bezahlt {
+    color: v.$accent;
+  }
+
+  .offen {
+    color: orange;
+  }
+}
+
+@media (max-width: 600px) {
+  .invoice-date,
+  .invoice-status,
+  .invoice-amount {
+    display: none;
+  }
+}
