@@ -1,4 +1,4 @@
-<div *ngIf="customer; else loading">
+<div *ngIf="customer">
     <h2>{{ customer.customer_number }}</h2>
     <p>Firma: {{ customer.company_name }}</p>
 
@@ -17,6 +17,3 @@
     <p>USt-ID: {{ customer.vat_language }}{{ customer.vat_id }}</p>
     <p>Notizen: {{ customer.notes }}</p>
 </div>
-<ng-template #loading>
-    <p>Lade Kundendetails...</p>
-</ng-template>
