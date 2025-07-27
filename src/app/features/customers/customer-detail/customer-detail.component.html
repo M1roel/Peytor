@@ -1,1 +1,22 @@
-<p>In Bearbeitung...</p>
+<div *ngIf="customer; else loading">
+    <h2>{{ customer.customer_number }}</h2>
+    <p>Firma: {{ customer.company_name }}</p>
+
+    <h3>Adresse</h3>
+    <p>Straße: {{ customer.street }} {{ customer.house_number }}</p>
+    <p>PLZ: {{ customer.zip_code }}</p>
+    <p>Stadt: {{ customer.city }}</p>
+    <p>Land: {{ customer.country }}</p>
+
+    <h3>Kontakt</h3>
+    <p>Email: {{ customer.email }}</p>
+    <p>Telefon: {{ customer.phone }}</p>
+    <p>Branche: {{ customer.industry }}</p>
+    <p>Website: {{ customer.website }}</p>
+    <p>Sprache: {{ customer.language }}</p>
+    <p>USt-ID: {{ customer.vat_language }}{{ customer.vat_id }}</p>
+    <p>Notizen: {{ customer.notes }}</p>
+</div>
+<ng-template #loading>
+    <p>Lade Kundendetails...</p>
+</ng-template>

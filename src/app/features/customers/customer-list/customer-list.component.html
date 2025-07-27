@@ -3,7 +3,7 @@
     <p *ngIf="customers.length === 0">Keine Kunden gefunden.</p>
     <p *ngIf="customers.length > 0">Anzahl der Kunden: {{ customers.length }}</p>
     <ul>
-        <li *ngFor="let customer of customers">
+        <li class="customer-list-item" *ngFor="let customer of customers" (click)="showDetails(customer)">
             {{ customer.company_name }} ({{ customer.customer_number }})
         </li>
     </ul>

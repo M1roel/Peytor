@@ -1,0 +1,28 @@
+@use '../../../../styles/variables.scss' as v;
+@use '../../../../styles/mixins.scss' as m;
+
+.customer-list-main {
+
+    li {
+        &.customer-list-item {
+            @include m.flexBox(row, flex-start, space-between);
+            padding: v.$spacing-sm;
+            border-bottom: 1px solid v.$surface;
+            cursor: pointer;
+            width: 100%;
+    
+            &:hover {
+            background-color: v.$glass-bg;
+            }
+    
+            .customer-name {
+            font-weight: bold;
+            color: v.$text-primary;
+            }
+    
+            .customer-email {
+            color: v.$text-secondary;
+            }
+        }
+    }
+}

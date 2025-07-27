@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import  { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CustomerService, CustomerSummary } from '../../../core/services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,13 +13,22 @@ export class CustomerListComponent {
 
   customers: CustomerSummary[] = [];
 
-  constructor(private customerService: CustomerService) { }
-  
+  constructor(private customerService: CustomerService, private router: Router) { }
+
   async ngOnInit() {
     try {
       this.customers = await this.customerService.getCustomers();
     } catch (error) {
       console.error('Fehler beim Laden der Kundenliste:', error);
+    }
+  }
+
+  async showDetails(customer: CustomerSummary) {
+    try {
+      this.router.navigate(['/app/customers/detail', customer.id]);
+      console.log('Kundendetails:', customer);
+    } catch (error) {
+      console.error('Fehler beim Laden der Kundendetails:', error);
     }
   }
 }

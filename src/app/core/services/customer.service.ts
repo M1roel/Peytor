@@ -5,6 +5,21 @@ export interface CustomerSummary {
   id: string;
   customer_number: string;
   company_name: string;
+  contact_person?: string;
+  email: string;
+  phone?: string;
+  vat_id?: string;
+  industry?: string;
+  website?: string;
+  language?: string;
+  is_active: boolean;
+  street?: string;
+  zip_code?: string;
+  city?: string;
+  country?: string;
+  notes?: string;
+  vat_language?: string;
+  house_number?: string;
   created_at: string;
 }
 
@@ -36,7 +51,7 @@ export class CustomerService {
     const supabase = this.supabaseService.getClient();
     const { data, error } = await supabase
       .from<'customers', 'public'>('customers')
-      .select('id, customer_number, company_name, created_at');
+      .select('id, customer_number, company_name, created_at, email, phone, vat_id, industry, website, language, is_active, street, zip_code, city, country, notes, vat_language, house_number');
 
     if (error) {
       console.error('Fehler beim Laden der Kundenliste:', error);
@@ -46,4 +61,19 @@ export class CustomerService {
     return data;
   }
 
+  async getCustomerById(id: string): Promise<CustomerSummary | null> {
+    const supabase = this.supabaseService.getClient();
+    const { data, error } = await supabase
+      .from('customers')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) {
+      console.error('Fehler beim Laden des Kunden:', error);
+      throw error;
+    }
+
+    return data;
+  }
 }
