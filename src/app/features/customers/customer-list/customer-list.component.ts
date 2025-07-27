@@ -26,7 +26,6 @@ export class CustomerListComponent {
   async showDetails(customer: CustomerSummary) {
     try {
       this.router.navigate(['/app/customers/detail', customer.id]);
-      console.log('Kundendetails:', customer);
     } catch (error) {
       console.error('Fehler beim Laden der Kundendetails:', error);
     }
