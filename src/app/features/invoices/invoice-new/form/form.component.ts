@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { InvoicesService } from '../../../../core/services/invoices.service'; 
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -11,6 +12,8 @@ import html2canvas from 'html2canvas';
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
+
+  constructor(private invoicesService: InvoicesService) {}
 
   invoice = {
     customer: '',
