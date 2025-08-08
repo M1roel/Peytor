@@ -11,7 +11,7 @@ import { InvoicesService } from '../../../core/services/invoices.service';
 })
 export class InvoiceListComponent {
 
-  constructor(private router: Router, private invoicesService: InvoicesService) {}
+  constructor(private router: Router, private invoicesService: InvoicesService) { }
 
   invoices = [
     { id: 1, number: 'INV-001', customer: 'Peter GmbH', date: new Date(), status: 'bezahlt', amount: 199.99 },

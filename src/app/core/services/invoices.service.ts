@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SupabaseService } from './supabase.service';  
+import { SupabaseService } from './supabase.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,20 @@ export class InvoicesService {
       console.error('Error fetching invoices:', error);
       return [];
     }
-    
+
+    return data;
+  }
+
+  async createInvoice(invoice: any) {
+    const { data, error } = await this.supabaseService.getClient()
+      .from('invoices')
+      .insert([invoice]);
+
+    if (error) {
+      console.error('Error creating invoice:', error);
+      return null;
+    }
+
     return data;
   }
 }

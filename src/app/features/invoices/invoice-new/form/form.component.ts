@@ -75,4 +75,7 @@ export class FormComponent {
       });
     }, 100);
   }
+
+  saveToSupabase() {
+  }
 }
