@@ -76,6 +76,12 @@ export class FormComponent {
     }, 100);
   }
 
-  saveToSupabase() {
+  async saveToSupabase() {
+    try {
+      const response = await this.invoicesService.createInvoice(this.invoice);
+      console.log('Invoice saved to Supabase:', response);
+    } catch (error) {
+      console.error('Error saving invoice to Supabase:', error);
+    }
   }
 }
