@@ -37,7 +37,7 @@
                     <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
                 </div>
 
-                <button class="button-primary" (click)="saveToSupabase()" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
+                <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
                 <button class="button-primary" (click)="exportAsPDF()">Als PDF exportieren</button>
             </form>
         </div>

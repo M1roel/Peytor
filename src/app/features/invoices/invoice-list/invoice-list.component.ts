@@ -12,11 +12,8 @@ import { InvoicesService } from '../../../core/services/invoices.service';
 export class InvoiceListComponent {
 
   constructor(private router: Router, private invoicesService: InvoicesService) { }
-
-  invoices = [
-    { id: 1, number: 'INV-001', customer: 'Peter GmbH', date: new Date(), status: 'bezahlt', amount: 199.99 },
-    { id: 2, number: 'INV-002', customer: 'Müller AG', date: new Date(), status: 'offen', amount: 349.50 },
-  ];
+  
+  invoices: any[] = [];
 
   ngOnInit() {
     this.getInvoices();

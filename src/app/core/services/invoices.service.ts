@@ -8,6 +8,19 @@ export class InvoicesService {
 
   constructor(private supabaseService: SupabaseService) { }
 
+  async getUser() {
+    const supabase = this.supabaseService.getClient();
+    if (!supabase) {
+      console.error('Supabase client is not initialized');
+      return null;
+    }
+    const {
+      data: { user }
+    } = await supabase.auth.getUser();
+
+    return user;
+  }
+
   async getInvoices() {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
@@ -22,9 +35,43 @@ export class InvoicesService {
   }
 
   async createInvoice(invoice: any) {
-    const { data, error } = await this.supabaseService.getClient()
+    const supabase = this.supabaseService.getClient();
+    if (!supabase) {
+      console.error('Supabase client is not initialized');
+      return null;
+    }
+
+    const {
+      data: { user },
+      error: userError
+    } = await supabase.auth.getUser();
+
+    if (userError) {
+      console.error('Error fetching user:', userError);
+      return null;
+    }
+
+    if (!user) {
+      console.error('No authenticated user found');
+      return null;
+    }
+
+    const total = invoice.items.reduce(
+      (sum: number, item: any) => sum + item.quantity * item.unitPrice,
+      0
+    );
+
+    const payload = {
+      ...invoice,
+      total,
+      user_id: user.id
+    };
+
+    const { data, error } = await supabase
       .from('invoices')
-      .insert([invoice]);
+      .insert([payload])
+      .select()
+      .single();
 
     if (error) {
       console.error('Error creating invoice:', error);
@@ -33,4 +80,5 @@ export class InvoicesService {
 
     return data;
   }
+
 }

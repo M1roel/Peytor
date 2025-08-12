@@ -21,7 +21,7 @@
           <td class="invoice-status">
             <span [ngClass]="invoice.status">{{ invoice.status }}</span>
           </td>
-          <td class="invoice-amount">{{ invoice.amount | currency:'EUR' }}</td>
+          <td class="invoice-amount">{{ invoice.total | currency:'EUR' }}</td>
           <td class="actions">
             <button class="button-primary" (click)="view(invoice.id)">Ansehen</button>
             <button class="button-primary" (click)="edit(invoice.id)">Bearbeiten</button>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { InvoicesService } from '../../../../core/services/invoices.service'; 
+import { InvoicesService } from '../../../../core/services/invoices.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 })
 export class FormComponent {
 
-  constructor(private invoicesService: InvoicesService) {}
+  constructor(private invoicesService: InvoicesService) { }
 
   invoice = {
     customer: '',
@@ -37,11 +37,23 @@ export class FormComponent {
       sum + item.quantity * item.unitPrice, 0);
   }
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log('Rechnung:', this.invoice);
+      try {
+        const response = await this.invoicesService.createInvoice(this.invoice);
+        console.log('Rechnung gespeichert:', response);
+        form.resetForm({
+          customer: '',
+          date: '',
+          number: '',
+          items: [{ description: '', quantity: 1, unitPrice: 0 }]
+        });
+      } catch (error) {
+        console.error('Fehler beim Speichern:', error);
+      }
     }
   }
+
 
   exportAsPDF() {
     const element = document.getElementById('invoice-preview');
@@ -74,14 +86,5 @@ export class FormComponent {
         pdf.save(`Rechnung-${this.invoice.number || 'unbenannt'}.pdf`);
       });
     }, 100);
-  }
-
-  async saveToSupabase() {
-    try {
-      const response = await this.invoicesService.createInvoice(this.invoice);
-      console.log('Invoice saved to Supabase:', response);
-    } catch (error) {
-      console.error('Error saving invoice to Supabase:', error);
-    }
   }
 }
