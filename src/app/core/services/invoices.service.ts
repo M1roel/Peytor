@@ -36,10 +36,6 @@ export class InvoicesService {
 
   async createInvoice(invoice: any) {
     const supabase = this.supabaseService.getClient();
-    if (!supabase) {
-      console.error('Supabase client is not initialized');
-      return null;
-    }
 
     const {
       data: { user },
@@ -56,14 +52,14 @@ export class InvoicesService {
       return null;
     }
 
-    const total = invoice.items.reduce(
+    const amount = invoice.items.reduce(
       (sum: number, item: any) => sum + item.quantity * item.unitPrice,
       0
     );
 
     const payload = {
       ...invoice,
-      total,
+      amount,
       user_id: user.id
     };
 

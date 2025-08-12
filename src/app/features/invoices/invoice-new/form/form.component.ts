@@ -21,7 +21,8 @@ export class FormComponent {
     number: '',
     items: [
       { description: '', quantity: 1, unitPrice: 0 }
-    ]
+    ],
+    status: 'offen'
   };
 
   addItem() {
