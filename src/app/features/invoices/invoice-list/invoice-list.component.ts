@@ -32,12 +32,12 @@ export class InvoiceListComponent {
     this.router.navigate(['app/invoices/new']);
   }
 
-  edit(id: number) {
-    console.log('Bearbeiten', id);
+  correction(id: number) {
+    console.log('Korrigieren', id);
   }
 
-  delete(id: number) {
-    console.log('Löschen', id);
+  cancel(id: number) {
+    console.log('Stornieren', id);
   }
 }
 
