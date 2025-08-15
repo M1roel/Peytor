@@ -51,6 +51,15 @@
     }
   }
 
+  #reverseCharge {
+    display: flex;
+    align-items: center;
+
+    input {
+      margin-right: v.$spacing-xs;
+    }
+  }
+
   .invoice-section {
     @include m.flexBox();
     width: 100%;

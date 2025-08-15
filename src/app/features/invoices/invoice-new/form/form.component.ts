@@ -22,7 +22,8 @@ export class FormComponent {
     items: [
       { description: '', quantity: 1, unitPrice: 0 }
     ],
-    status: 'offen'
+    status: 'offen',
+    reverseCharge: false
   };
 
   addItem() {

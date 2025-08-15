@@ -36,7 +36,10 @@
                 <div class="form-group total">
                     <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
                 </div>
-
+                <div id="reverseCharge">
+                    <input id="reverseCharge" type="checkbox" [(ngModel)]="invoice.reverseCharge">
+                    <label for="reverseCharge">Reverse Charge</label>
+                </div>
                 <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
                 <button class="button-primary" (click)="exportAsPDF()">Als PDF exportieren</button>
             </form>
