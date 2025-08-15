@@ -55,7 +55,6 @@ export class FormComponent {
     }
   }
 
-
   exportAsPDF() {
     const element = document.getElementById('invoice-preview');
     if (!element) return;
