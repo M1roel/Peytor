@@ -17,7 +17,7 @@ export class CustomerDetailComponent {
   async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.customer = (await this.customerService.getCustomerById(id)) ?? undefined;
+      this.customer = await this.customerService.getCustomerById(id) ?? undefined;
     }
   }
 }
