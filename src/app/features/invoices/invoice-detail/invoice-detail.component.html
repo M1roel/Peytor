@@ -1,1 +1,31 @@
-<p>In Bearbeitung...</p>
+<div class="invoice-preview" id="invoice-preview">
+    <div class="preview-header">
+        <div class="logo"><strong>Peytor</strong></div>
+        <div class="invoice-info">
+            <p><strong>Rechnungsnummer:</strong> {{ invoice?.number }}</p>
+            <p><strong>Datum:</strong> {{ invoice?.date | date }}</p>
+        </div>
+    </div>
+
+    <div class="preview-main">
+        <div class="customer-info">
+            <p><strong>Rechnung an:</strong> {{ invoice?.customer }}</p>
+        </div>
+
+        <h4>Positionen</h4>
+        <ul>
+            <li *ngFor="let item of invoice?.items">
+                <span>{{ item.description }} ({{ item.quantity }}x)</span>
+                <span>{{ item.quantity * item.unitPrice | currency:'EUR' }}</span>
+            </li>
+        </ul>
+
+        <div class="total">
+            Gesamtbetrag: {{ calculateTotal() | currency:'EUR' }}
+        </div>
+    </div>
+
+    <div class="preview-footer">
+        <p>Diese Rechnung wurde automatisch generiert und ist auch ohne Unterschrift gültig.</p>
+    </div>
+</div>

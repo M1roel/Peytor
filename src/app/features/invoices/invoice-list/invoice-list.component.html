@@ -23,9 +23,9 @@
           </td>
           <td class="invoice-amount">{{ invoice.amount | currency:'EUR' }}</td>
           <td class="actions">
-            <button class="button-primary" (click)="view(invoice.id)">Ansehen</button>
-            <button class="button-primary" (click)="correction(invoice.id)">Korrigieren</button>
-            <button class="delete button-primary" (click)="cancel(invoice.id)">Stornieren</button>
+            <button class="button-primary" (click)="view(invoice.id)"><mat-icon>search</mat-icon></button>
+            <button class="button-primary" (click)="correction(invoice.id)"><mat-icon>edit</mat-icon></button>
+            <button class="delete button-primary" (click)="cancel(invoice.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>
       </tbody>

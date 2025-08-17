@@ -2,10 +2,11 @@ import { CommonModule, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { InvoicesService } from '../../../core/services/invoices.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-invoice-list',
-  imports: [NgClass, CommonModule, CurrencyPipe, DatePipe],
+  imports: [NgClass, CommonModule, CurrencyPipe, DatePipe, MatIcon],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.scss'
 })
@@ -24,8 +25,7 @@ export class InvoiceListComponent {
   }
 
   view(id: number) {
-    // später: this.router.navigate(['detail', id]);
-    console.log('Ansehen', id);
+    this.router.navigate(['app/invoices/detail', id]);
   }
 
   create() {

@@ -76,4 +76,19 @@ export class InvoicesService {
 
     return data;
   }
+
+  async getInvoiceById(id: string) {
+    const { data, error } = await this.supabaseService.getClient()
+      .from('invoices')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) {
+      console.error('Error fetching invoice:', error);
+      return null;
+    }
+    return data;
+  }
+
 }
