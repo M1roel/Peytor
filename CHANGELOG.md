@@ -14,6 +14,7 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 - Speicherung in Supabase mit Row-Level-Security: Benutzer sehen nur ihre eigenen Rechnungen
 - Alle Rechnungen für den Benutzer werden in einer Liste angezeigt und können einzeln in einer Detailansicht 
 angezeigt werden
+- Möglichkeit bei der Rechnungserstellung "Reverse Charge" auszuwählen
 
 🎨 Geändert
 
