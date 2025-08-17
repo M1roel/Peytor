@@ -4,6 +4,7 @@ import { SupabaseService } from './supabase.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class InvoicesService {
 
   constructor(private supabaseService: SupabaseService) { }

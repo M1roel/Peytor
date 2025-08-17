@@ -26,6 +26,7 @@ export interface CustomerSummary {
 @Injectable({
   providedIn: 'root'
 })
+
 export class CustomerService {
 
   constructor(private supabaseService: SupabaseService) { }

@@ -4,6 +4,25 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
 ---
 
+##
+
+## [0.42] - 2025-08-17
+
+✨ Hinzugefügt
+
+- Neue Rechnungen können jetzt in Supabase gespeichert werden
+- Speicherung in Supabase mit Row-Level-Security: Benutzer sehen nur ihre eigenen Rechnungen
+- Alle Rechnungen für den Benutzer werden in einer Liste angezeigt und können einzeln in einer Detailansicht 
+angezeigt werden
+
+🎨 Geändert
+
+- Die Sidebar wird jetzt in kleineren Ansichten zur Botton-Navbar
+
+---
+
+##
+
 ## [0.41] – 2025-07-24
 
 ✨ Hinzugefügt
@@ -16,6 +35,9 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 - RLS-konforme Policies und user_id-Zuweisung beim Insert integriert
 
 ---
+
+##
+
 ## [0.4] – 2025-07-04
 
 ✨ Hinzugefügt
@@ -77,7 +99,6 @@ Alle Änderungen und Verbesserungen an der Web-App **Peytor** werden hier dokume
 
 - `register.component.ts`: Aufruf von `storeUserData()` und `addUserToFirestore()` integriert
 - Firestore-Zugriff von zufälliger ID (`addDoc`) auf benutzerdefinierte UID (`setDoc`) umgestellt
-
 
 ---
 

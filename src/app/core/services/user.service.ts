@@ -10,6 +10,7 @@ export interface UserData {
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private userData: UserData | null = null;
 
