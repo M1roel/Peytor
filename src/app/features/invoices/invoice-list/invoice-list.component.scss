@@ -18,7 +18,7 @@
       text-align: left;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-      @media (max-width: 600px) {
+      @media (max-width: 750px) {
         padding: 0.5rem;
       }
     }
@@ -42,7 +42,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .invoice-date,
   .invoice-status,
   .invoice-amount {
