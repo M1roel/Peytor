@@ -92,4 +92,36 @@ export class InvoicesService {
     return data;
   }
 
+  async updateInvoice(id: string, updates: any) {
+    const { data, error } = await this.supabaseService.getClient()
+      .from('invoices')
+      .update(updates)
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error updating invoice:', error);
+      return null;
+    }
+
+    return data;
+  }
+
+  async cancelInvoice(id: string) {
+    const { data, error } = await this.supabaseService.getClient()
+      .from('invoices')
+      .delete()
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error deleting invoice:', error);
+      return null;
+    }
+
+    return data;
+  }
 }
+

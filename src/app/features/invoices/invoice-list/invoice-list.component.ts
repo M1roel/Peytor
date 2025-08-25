@@ -32,12 +32,16 @@ export class InvoiceListComponent {
     this.router.navigate(['app/invoices/new']);
   }
 
-  correction(id: number) {
-    console.log('Korrigieren', id);
+  correction(status: string, id: number) {
+    if (status === 'offen') {
+      this.router.navigate(['app/invoices/edit', id]);
+    } else{
+      console.log('Korrektur nicht möglich, da der Status nicht "offen" ist.');
+    } 
   }
 
   cancel(id: number) {
-    console.log('Stornieren', id);
+    this.invoicesService.cancelInvoice(this.invoices[id].id);
   }
 }
 
