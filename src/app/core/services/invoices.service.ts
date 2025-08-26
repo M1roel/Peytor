@@ -61,7 +61,8 @@ export class InvoicesService {
     const payload = {
       ...invoice,
       amount,
-      user_id: user.id
+      user_id: user.id,
+      reverseCharge: invoice.reverseCharge ?? false
     };
 
     const { data, error } = await supabase

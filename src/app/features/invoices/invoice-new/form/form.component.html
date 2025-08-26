@@ -37,7 +37,7 @@
                     <strong>Gesamt: {{ calculateTotal() | currency:'EUR' }}</strong>
                 </div>
                 <div id="reverseCharge">
-                    <input id="reverseCharge" type="checkbox" [(ngModel)]="invoice.reverseCharge">
+                    <input id="reverseCharge" type="checkbox" name="reverseCharge" [(ngModel)]="invoice.reverseCharge">
                     <label for="reverseCharge">Reverse Charge</label>
                 </div>
                 <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
