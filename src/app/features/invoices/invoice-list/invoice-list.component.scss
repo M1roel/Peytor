@@ -33,12 +33,24 @@
     }
   }
 
-  .bezahlt {
+  .Entwurf {
+    color: v.$text-secondary;
+  }
+
+  .Offen {
+    color: orange;
+  }
+
+  .Bezahlt {
     color: v.$accent;
   }
 
-  .offen {
-    color: orange;
+  .Storniert {
+    color: darkgray;
+  }
+
+  .Überfällig {
+    color: v.$error;
   }
 }
 
