@@ -33,10 +33,10 @@ export class InvoiceListComponent {
   }
 
   correction(status: string, id: number) {
-    if (status === 'Offen') {
+    if (status === 'Offen' || status === 'Entwurf') {
       this.router.navigate(['app/invoices/edit', id]);
     } else{
-      console.log('Korrektur nicht möglich, da der Status nicht "Offen" ist.');
+      console.log('Korrektur nicht möglich, da der Status nicht "Offen" oder "Entwurf" ist.');
     } 
   }
 
