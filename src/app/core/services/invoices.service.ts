@@ -79,7 +79,7 @@ export class InvoicesService {
     return data;
   }
 
-  async getInvoiceById(id: string) {
+  async getInvoiceById(id: number) {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .select('*')
@@ -93,7 +93,7 @@ export class InvoicesService {
     return data;
   }
 
-  async updateInvoice(id: string, updates: any) {
+  async updateInvoice(id: number, updates: any) {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .update(updates)
@@ -109,13 +109,12 @@ export class InvoicesService {
     return data;
   }
 
-  async cancelInvoice(id: string) {
+  async cancelInvoice(id: number) {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .delete()
       .eq('id', id)
-      .select()
-      .single();
+      .select();
 
     if (error) {
       console.error('Error deleting invoice:', error);

@@ -21,7 +21,7 @@ export class InvoiceDetailComponent {
   async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id'); 
     if (id) {
-      this.invoice = await this.invoicesService.getInvoiceById(id);
+      this.invoice = await this.invoicesService.getInvoiceById(Number(id));
     }
   }
 
