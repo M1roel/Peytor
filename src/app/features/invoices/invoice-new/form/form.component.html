@@ -17,7 +17,8 @@
 
                 <div class="form-group">
                     <label for="number">Rechnungsnummer</label>
-                    <input id="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoice.invoiceNumber" required placeholder="z. B. 2025-001">
+                    <input id="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoice.invoiceNumber" required
+                        placeholder="z. B. 2025-001">
                 </div>
 
                 <div *ngFor="let item of invoice.items; let i = index" class="invoice-item">
@@ -40,7 +41,8 @@
                     <input id="reverseCharge" type="checkbox" name="reverseCharge" [(ngModel)]="invoice.reverseCharge">
                     <label for="reverseCharge">Reverse Charge</label>
                 </div>
-                <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung speichern</button>
+                <button class="button-primary" type="submit" [disabled]="!invoiceForm.form.valid">Rechnung
+                    speichern</button>
                 <button class="button-primary" (click)="exportAsPDF()">Als PDF exportieren</button>
             </form>
         </div>
