@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SupabaseService } from './supabase.service';
+import { InvoiceData } from '../models/invoice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class InvoicesService {
     return user;
   }
 
-  async getInvoices() {
+  async getInvoices(): Promise<InvoiceData[]> {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .select('*');
@@ -32,10 +33,10 @@ export class InvoicesService {
       return [];
     }
 
-    return data;
+    return data as InvoiceData[];
   }
 
-  async createInvoice(invoice: any) {
+  async createInvoice(invoice: InvoiceData): Promise<InvoiceData | null> {
     const supabase = this.supabaseService.getClient();
 
     const {
@@ -54,11 +55,11 @@ export class InvoicesService {
     }
 
     const amount = invoice.items.reduce(
-      (sum: number, item: any) => sum + item.quantity * item.unitPrice,
+      (sum: number, item) => sum + item.quantity * item.unitPrice,
       0
     );
 
-    const payload = {
+    const payload: InvoiceData = {
       ...invoice,
       amount,
       user_id: user.id,
@@ -76,10 +77,10 @@ export class InvoicesService {
       return null;
     }
 
-    return data;
+    return data as InvoiceData;
   }
 
-  async getInvoiceById(id: number) {
+  async getInvoiceById(id: number): Promise<InvoiceData | null> {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .select('*')
@@ -90,10 +91,10 @@ export class InvoicesService {
       console.error('Error fetching invoice:', error);
       return null;
     }
-    return data;
+    return data as InvoiceData;
   }
 
-  async updateInvoice(id: number, updates: any) {
+  async updateInvoice(id: number, updates: Partial<InvoiceData>): Promise<InvoiceData | null> {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .update(updates)
@@ -106,10 +107,10 @@ export class InvoicesService {
       return null;
     }
 
-    return data;
+    return data as InvoiceData;
   }
 
-  async cancelInvoice(id: number) {
+  async cancelInvoice(id: number): Promise<InvoiceData[] | null> {
     const { data, error } = await this.supabaseService.getClient()
       .from('invoices')
       .delete()
@@ -121,7 +122,7 @@ export class InvoicesService {
       return null;
     }
 
-    return data;
+    return data as InvoiceData[];
   }
 }
 

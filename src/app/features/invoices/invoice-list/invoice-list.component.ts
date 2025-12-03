@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { InvoicesService } from '../../../core/services/invoices.service';
 import { ErrorMessagesService } from '../../../core/services/error-messages.service';
 import { MatIcon } from '@angular/material/icon';
+import { InvoiceData } from '../../../core/models/invoice.model';
 
 @Component({
   selector: 'app-invoice-list',
@@ -21,7 +22,7 @@ export class InvoiceListComponent {
     private invoicesService: InvoicesService,
     private errorMessagesService: ErrorMessagesService) { }
 
-  invoices: any[] = [];
+  invoices: InvoiceData[] = [];
 
   ngOnInit() {
     this.getInvoices();
