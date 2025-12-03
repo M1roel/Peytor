@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { SupabaseService } from './supabase.service';
-
-export interface UserData {
-  uid: string;
-  name: string;
-  email: string;
-}
+import { AppUser } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
-  private userData: UserData | null = null;
+  private userData: AppUser | null = null;
 
   constructor(private supabaseService: SupabaseService) { }
 
-  storeUserData(uid: string, name: string, email: string): void {
-    this.userData = { uid, name, email };
+  storeUserData(uid: string, name: string, email: string, role?: string): void {
+    this.userData = {
+      uid,
+      name,
+      email,
+      role
+    };
   }
 
   async addUserToSupabase(): Promise<void> {
@@ -26,7 +25,7 @@ export class UserService {
       return;
     }
 
-    const { name, email } = this.userData;
+    const { name, email, role } = this.userData;
 
     const {
       data: { user },
@@ -44,7 +43,8 @@ export class UserService {
         {
           id: user.id,
           name,
-          email
+          email,
+          role: role || 'user'
         }
       ]);
 

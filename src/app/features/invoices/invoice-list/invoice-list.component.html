@@ -30,6 +30,7 @@
         </tr>
       </tbody>
     </table>
+    <div class="error-message" [class.visible]="errorMessage">{{ errorMessage }}</div>
     <div class="toast" [class.visible]="showSuccess">Rechnung wurde erfolgreich gelöscht!</div>
   </section>
   

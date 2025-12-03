@@ -35,4 +35,8 @@ export class ErrorMessagesService {
   getPasswordMismatchMessage(): string {
     return 'Die Passwörter stimmen nicht überein. Bitte erneut eingeben.';
   }
+
+  getInvoiceErrorMessage(): string {
+    return 'Die Rechnung muss den Status Entwurf haben, um gelöscht zu werden.';
+  }
 }
