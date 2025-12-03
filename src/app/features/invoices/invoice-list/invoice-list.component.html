@@ -25,10 +25,11 @@
           <td class="actions">
             <button class="button-primary" (click)="view(invoice.id)"><mat-icon>search</mat-icon></button>
             <button class="button-primary" (click)="correction(invoice.status, invoice.id)"><mat-icon>edit</mat-icon></button>
-            <button class="delete button-primary" (click)="cancel(invoice.id)"><mat-icon>delete</mat-icon></button>
+            <button class="delete button-primary" (click)="cancel(invoice.status, invoice.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>
       </tbody>
     </table>
+    <div class="toast" [class.visible]="showSuccess">Rechnung wurde erfolgreich gelöscht!</div>
   </section>
   

@@ -2,6 +2,7 @@ import { CommonModule, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { InvoicesService } from '../../../core/services/invoices.service';
+import { ErrorMessagesService } from '../../../core/services/error-messages.service';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
@@ -12,8 +13,14 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class InvoiceListComponent {
 
-  constructor(private router: Router, private invoicesService: InvoicesService) { }
-  
+  showSuccess: boolean = false;
+  errorMessage: string = '';
+
+  constructor(
+    private router: Router,
+    private invoicesService: InvoicesService,
+    private errorMessagesService: ErrorMessagesService) { }
+
   invoices: any[] = [];
 
   ngOnInit() {
@@ -35,14 +42,18 @@ export class InvoiceListComponent {
   correction(status: string, id: number) {
     if (status === 'Offen' || status === 'Entwurf') {
       this.router.navigate(['app/invoices/edit', id]);
-    } else{
+    } else {
       console.log('Korrektur nicht möglich, da der Status nicht "Offen" oder "Entwurf" ist.');
-    } 
+    }
   }
 
-  cancel(id: number) {
-    this.invoicesService.cancelInvoice(id);
-    this.getInvoices();
+  async cancel(status: string, id: number) {
+      await this.invoicesService.cancelInvoice(id);
+      await this.getInvoices();
+      this.showSuccess = true;
+      setTimeout(() => {
+        this.showSuccess = false;
+      }, 3000);
+    }
   }
-}
 
