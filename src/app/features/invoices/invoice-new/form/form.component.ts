@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { InvoicesService } from '../../../../core/services/invoices.service';
+import { InvoiceData } from '../../../../core/models/invoice.model';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -15,15 +16,22 @@ export class FormComponent {
 
   constructor(private invoicesService: InvoicesService) { }
 
-  invoice = {
-    customer: '',
-    date: '',
-    number: '',
+  invoice: InvoiceData = {
+    invoiceNumber: '',
+    date: new Date(),
+    dueDate: new Date(),
+    status: 'Entwurf',
+    customerName: '',
+    customerAddress: '',
     items: [
       { description: '', quantity: 1, unitPrice: 0 }
     ],
-    status: 'Entwurf',
-    reverseCharge: false
+    amount: 0,
+    user_id: '',
+    reverseCharge: false,
+    notes: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   };
 
   addItem() {
@@ -84,7 +92,7 @@ export class FormComponent {
         const imgHeight = imgProps.height * ratio;
 
         pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
-        pdf.save(`Rechnung-${this.invoice.number || 'unbenannt'}.pdf`);
+        pdf.save(`Rechnung-${this.invoice.invoiceNumber || 'unbenannt'}.pdf`);
       });
     }, 100);
   }
