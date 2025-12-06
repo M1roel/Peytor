@@ -6,7 +6,6 @@ export interface InvoiceItem {
 }
 
 export interface InvoiceData {
-  showMenu: any;
   id?: number;
   user_id: string;
   customer: string;
