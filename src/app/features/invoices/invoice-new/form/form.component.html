@@ -6,7 +6,7 @@
 
                 <div class="form-group">
                     <label for="customer">Kunde</label>
-                    <input id="customer" name="customerName" [(ngModel)]="invoice.customerName" required
+                    <input id="customer" name="customerName" [(ngModel)]="invoice.customer" required
                         placeholder="Kundenname">
                 </div>
 
@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <label for="number">Rechnungsnummer</label>
-                    <input id="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoice.invoiceNumber" required
+                    <input id="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoice.number" required
                         placeholder="z. B. 2025-001">
                 </div>
 
@@ -51,14 +51,14 @@
                 <div class="preview-header">
                     <div class="logo"><strong>Peytor</strong></div>
                     <div class="invoice-info">
-                        <p><strong>Rechnungsnummer:</strong> {{ invoice.invoiceNumber }}</p>
+                        <p><strong>Rechnungsnummer:</strong> {{ invoice.number }}</p>
                         <p><strong>Datum:</strong> {{ invoice.date | date }}</p>
                     </div>
                 </div>
 
                 <div class="preview-main">
                     <div class="customer-info">
-                        <p><strong>Rechnung an:</strong> {{ invoice.customerName }}</p>
+                        <p><strong>Rechnung an:</strong> {{ invoice.customer }}</p>
                     </div>
 
                     <h4>Positionen</h4>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { CustomerService, CustomerSummary } from '../../../core/services/customer.service';
+import { CustomerService } from '../../../core/services/customer.service';
+import { CustomerSummary } from '../../../core/models/customer.model';
 
 @Component({
   selector: 'app-customer-detail',

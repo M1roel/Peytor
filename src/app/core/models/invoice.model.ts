@@ -7,17 +7,12 @@ export interface InvoiceItem {
 
 export interface InvoiceData {
   id?: number;
-  invoiceNumber: string;
-  date: Date;
-  dueDate: Date;
-  status: 'Entwurf' | 'Offen' | 'Bezahlt' | 'Storniert' | 'Überfällig';
-  customerName: string;
-  customerAddress: string;
-  items: InvoiceItem[];
-  amount: number;
   user_id: string;
+  customer: string;
+  date: Date;
+  number: string;
+  items: InvoiceItem[];
+  status: 'Entwurf' | 'Offen' | 'Bezahlt' | 'Storniert' | 'Überfällig';
+  amount: number;
   reverseCharge?: boolean;
-  notes?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
 }

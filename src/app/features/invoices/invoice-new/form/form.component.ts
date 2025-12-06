@@ -17,21 +17,16 @@ export class FormComponent {
   constructor(private invoicesService: InvoicesService) { }
 
   invoice: InvoiceData = {
-    invoiceNumber: '',
+    number: '',
     date: new Date(),
-    dueDate: new Date(),
     status: 'Entwurf',
-    customerName: '',
-    customerAddress: '',
+    customer: '',
     items: [
       { description: '', quantity: 1, unitPrice: 0 }
     ],
     amount: 0,
     user_id: '',
-    reverseCharge: false,
-    notes: '',
-    createdAt: new Date(),
-    updatedAt: new Date()
+    reverseCharge: false
   };
 
   addItem() {
@@ -53,10 +48,19 @@ export class FormComponent {
         const response = await this.invoicesService.createInvoice(this.invoice);
         console.log('Rechnung gespeichert:', response);
         form.resetForm({
-          customer: '',
-          date: '',
-          number: '',
-          items: [{ description: '', quantity: 1, unitPrice: 0 }]
+          invoiceNumber: '',
+          date: new Date(),
+          dueDate: new Date(),
+          status: 'Entwurf',
+          customerName: '',
+          customerAddress: '',
+          items: [{ description: '', quantity: 1, unitPrice: 0 }],
+          amount: 0,
+          user_id: '',
+          reverseCharge: false,
+          notes: '',
+          createdAt: new Date(),
+          updatedAt: new Date()
         });
       } catch (error) {
         console.error('Fehler beim Speichern:', error);
@@ -92,7 +96,7 @@ export class FormComponent {
         const imgHeight = imgProps.height * ratio;
 
         pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
-        pdf.save(`Rechnung-${this.invoice.invoiceNumber || 'unbenannt'}.pdf`);
+        pdf.save(`Rechnung-${this.invoice.number || 'unbenannt'}.pdf`);
       });
     }, 100);
   }
