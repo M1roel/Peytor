@@ -1,3 +1,5 @@
+@use '../../../styles/variables.scss' as v;
+
 .settings-main {
     padding: 2rem;
     
@@ -5,4 +7,25 @@
     margin-bottom: 1rem;
     font-size: 1.8rem;
   }
-}   
+}
+
+.settings-tabs {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    span {
+        cursor: pointer;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid v.$accent;
+        }
+
+        &:active {
+            border-bottom: 2px solid v.$accent;
+            font-weight: bold;
+        }
+    }
+}
