@@ -2,6 +2,10 @@
 @use '../../../../styles/variables.scss' as v;
 @use "sass:color";
 
+.invoice-new-selection {
+    padding: 2rem;
+}
+
 h2 {
     @include m.styleFont(v.$font-family, v.$font-size-xxl, v.$font-weight-bold);
 }
