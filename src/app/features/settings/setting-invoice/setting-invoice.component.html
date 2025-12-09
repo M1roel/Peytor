@@ -1,1 +1,79 @@
-<p>setting-invoice works!</p>
+<section class="settings-invoice-main">
+    <h2>Rechnungseinstellungen</h2>
+    <div class="setting-invoice">
+        <form>
+            <label>
+                Standard-Fälligkeitszeitraum:
+                <select>
+                    <option>7 Tage</option>
+                    <option>14 Tage</option>
+                    <option>30 Tage</option>
+                </select>
+            </label>
+            <label>
+                Standard-Zahlungsart:
+                <select>
+                    <option>Überweisung</option>
+                    <option>PayPal</option>
+                    <option>Bar</option>
+                </select>
+            </label>
+            <label>
+                Standard-Steuersatz:
+                <select>
+                    <option>19 %</option>
+                    <option>7 %</option>
+                    <option>0 %</option>
+                </select>
+            </label>
+            <label>
+                Standard-Währung:
+                <select>
+                    <option>EUR</option>
+                    <option>USD</option>
+                    <option>CHF</option>
+                </select>
+            </label>
+            <label>
+                Automatische Rechnungsnummern:
+                <input type="text" placeholder="Präfix (z.B. INV-)" />
+                <input type="number" placeholder="Startwert" />
+            </label>
+            <label>
+                Reverse-Charge-Option:
+                <input type="checkbox" />
+            </label>
+            <label>
+                Standard-Fußzeile/Hinweis:
+                <textarea placeholder="Text für Fußzeile oder Hinweise"></textarea>
+            </label>
+            <label>
+                Logo für PDF-Rechnung:
+                <input type="file" />
+            </label>
+            <label>
+                Absender-Adresse/Firmendaten:
+                <textarea placeholder="Adresse, Kontakt, etc."></textarea>
+            </label>
+            <label>
+                E-Mail-Versandoptionen:
+                <input type="text" placeholder="Standard-Betreff" />
+                <textarea placeholder="Standard-Text"></textarea>
+            </label>
+            <label>
+                Erinnerungsfunktion für offene Rechnungen:
+                <input type="checkbox" />
+            </label>
+            <label>
+                Mahngebühren/Verzugszinsen:
+                <input type="number" placeholder="Mahngebühr (€)" />
+                <input type="number" placeholder="Verzugszins (%)" />
+            </label>
+            <label>
+                Standard-Positionstexte/Vorlagen:
+                <textarea placeholder="Vorlagen für Positionen"></textarea>
+            </label>
+            <button class="button-primary" type="submit">Speichern</button>
+        </form>
+    </div>
+</section>
