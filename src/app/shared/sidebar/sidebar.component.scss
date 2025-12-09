@@ -84,17 +84,20 @@
 
 nav a {
   @include m.flexBox(column);
-  color: v.$text-primary;
-  text-decoration: none;
-  padding: 0.75rem 1rem;
-  margin-bottom: 2rem;
+  border-bottom: 2px solid transparent;
   border-radius: 8px;
+  color: v.$text-primary;
   font-weight: 500;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
   transition: background 0.2s ease;
 
   &.active,
   &:hover {
-    background: rgba(255, 255, 255, 0.05);
     color: v.$accent;
+    background-color: v.$glass-bg;
+    border-bottom: 2px solid v.$accent;
+    font-weight: bold;
   }
 }

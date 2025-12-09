@@ -16,19 +16,21 @@
 }
 
 .settings-tabs a {
-    cursor: pointer;
-    padding-bottom: 0.5rem;
     border-bottom: 2px solid transparent;
-    text-decoration: none;
+    border-radius: 8px;
     color: inherit;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
     transition: border-bottom 0.2s;
 }
 
 .settings-tabs a.active,
 .settings-tabs a:hover {
+    color: v.$accent;
+    background-color: v.$glass-bg;
     border-bottom: 2px solid v.$accent;
     font-weight: bold;
-    color: v.$accent;
 }
 
 .settings-content {

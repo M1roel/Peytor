@@ -25,6 +25,8 @@ import { InvoiceEditComponent } from './features/invoices/invoice-edit/invoice-e
 import { InvoiceDetailComponent } from './features/invoices/invoice-detail/invoice-detail.component';
 import { SettingsComponent } from './features/settings/settings.component';
 import { SettingInvoiceComponent } from './features/settings/setting-invoice/setting-invoice.component';
+import { SettingCustomerComponent } from './features/settings/setting-customer/setting-customer.component';
+import { SettingUniversallyComponent } from './features/settings/setting-universally/setting-universally.component';
 import { ImprintComponent } from './shared/imprint/imprint.component';
 import { PolicyComponent } from './shared/policy/policy.component';
 
@@ -90,7 +92,9 @@ export const routes: Routes = [
         path: 'settings',
         component: SettingsComponent,
         children: [
-          { path: 'invoice', component: SettingInvoiceComponent }
+          { path: 'invoice', component: SettingInvoiceComponent },
+          { path: 'customer', component: SettingCustomerComponent },
+          { path: 'universally', component: SettingUniversallyComponent }
         ]
       },
     ],
