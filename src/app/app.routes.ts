@@ -4,7 +4,7 @@ import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { CustomersComponent } from './features/customers/customers.component';
 import { CustomerDetailComponent } from './features/customers/customer-detail/customer-detail.component';
 import { CustomerAddComponent } from './features/customers/customer-add/customer-add.component';
-import { CustomerListComponent } from './features/customers/customer-list/customer-list.component'; 
+import { CustomerListComponent } from './features/customers/customer-list/customer-list.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { HomeComponent } from './features/landing/home/home.component';
 import { PricingComponent } from './features/landing/pricing/pricing.component';
@@ -24,6 +24,7 @@ import { InvoiceListComponent } from './features/invoices/invoice-list/invoice-l
 import { InvoiceEditComponent } from './features/invoices/invoice-edit/invoice-edit.component';
 import { InvoiceDetailComponent } from './features/invoices/invoice-detail/invoice-detail.component';
 import { SettingsComponent } from './features/settings/settings.component';
+import { SettingInvoiceComponent } from './features/settings/setting-invoice/setting-invoice.component';
 import { ImprintComponent } from './shared/imprint/imprint.component';
 import { PolicyComponent } from './shared/policy/policy.component';
 
@@ -49,13 +50,14 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'customers',
+      {
+        path: 'customers',
         component: CustomersComponent,
         children: [
           { path: '', redirectTo: 'list', pathMatch: 'full' },
           { path: 'add', component: CustomerAddComponent },
           { path: 'detail/:id', component: CustomerDetailComponent },
-          { path: 'list', component: CustomerListComponent }, 
+          { path: 'list', component: CustomerListComponent },
         ],
       },
       {
@@ -84,7 +86,13 @@ export const routes: Routes = [
           { path: 'form', component: FormComponent },
         ],
       },
-      { path: 'settings', component: SettingsComponent },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+          { path: 'invoice', component: SettingInvoiceComponent }
+        ]
+      },
     ],
   },
 ];

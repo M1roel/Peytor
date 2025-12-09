@@ -1,8 +1,11 @@
 <section class="settings-main">
     <h2>Einstellungen</h2>
     <div class="settings-tabs">
-        <span>Allgemein</span>
-        <span>Rechnungen</span>
-        <span>Kunden</span>
+        <a>Allgemein</a>
+        <a routerLink="invoice" routerLinkActive="active">Rechnungen</a>
+        <a>Kunden</a>
+    </div>
+    <div class="settings-content">
+        <router-outlet></router-outlet>
     </div>
 </section>

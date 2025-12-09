@@ -2,30 +2,39 @@
 
 .settings-main {
     padding: 2rem;
-    
+
     h2 {
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-  }
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
 }
 
 .settings-tabs {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
 
-    span {
-        cursor: pointer;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid transparent;
+.settings-tabs a {
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    transition: border-bottom 0.2s;
+}
 
-        &:hover {
-            border-bottom: 2px solid v.$accent;
-        }
+.settings-tabs a.active,
+.settings-tabs a:hover {
+    border-bottom: 2px solid v.$accent;
+    font-weight: bold;
+    color: v.$accent;
+}
 
-        &:active {
-            border-bottom: 2px solid v.$accent;
-            font-weight: bold;
-        }
-    }
+.settings-content {
+    backdrop-filter: blur(v.$glass-blur);
+    background: v.$glass-bg;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
 }
