@@ -16,6 +16,7 @@ export class InvoiceListComponent {
 
   showSuccess: boolean = false;
   errorMessage: string = '';
+  openDropdownId: number | null = null;
 
   constructor(
     private router: Router,
@@ -62,5 +63,9 @@ export class InvoiceListComponent {
         this.errorMessage = '';
       }, 3000);
     }
+  }
+
+  toggleDropdown(id: number) {
+    this.openDropdownId = this.openDropdownId === id ? null : id;
   }
 }

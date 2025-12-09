@@ -1,36 +1,40 @@
 <section class="invoice-list">
-    <h2>Rechnungen</h2>
-    <button class="button-primary" (click)="create()">Neue Rechnung</button>
-  
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Kunde</th>
-          <th class="invoice-date">Datum</th>
-          <th class="invoice-status">Status</th>
-          <th class="invoice-amount">Betrag</th>
-          <th>Aktionen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let invoice of invoices">
-          <td>{{ invoice.number }}</td>
-          <td>{{ invoice.customer }}</td>
-          <td class="invoice-date">{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
-          <td class="invoice-status">
-            <span [ngClass]="invoice.status">{{ invoice.status }}</span>
-          </td>
-          <td class="invoice-amount">{{ invoice.amount | currency:'EUR' }}</td>
-          <td class="actions">
+  <h2>Rechnungen</h2>
+  <button class="button-primary" (click)="create()">Neue Rechnung</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Kunde</th>
+        <th class="invoice-date">Datum</th>
+        <th class="invoice-status">Status</th>
+        <th class="invoice-amount">Betrag</th>
+        <th>Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invoice of invoices">
+        <td>{{ invoice.number }}</td>
+        <td>{{ invoice.customer }}</td>
+        <td class="invoice-date">{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
+        <td class="invoice-status">
+          <span [ngClass]="invoice.status">{{ invoice.status }}</span>
+        </td>
+        <td class="invoice-amount">{{ invoice.amount | currency:'EUR' }}</td>
+        <td class="actions">
+          <button class="button-primary" (click)="toggleDropdown(invoice.id!)"><mat-icon>more_horiz</mat-icon></button>
+          <div [id]="'actions-dropdown-' + invoice.id" class="actions-dropdown" [ngClass]="{'d-none': openDropdownId !== invoice.id}">
             <button class="button-primary" (click)="view(invoice.id!)"><mat-icon>search</mat-icon></button>
-            <button class="button-primary" (click)="correction(invoice.status, invoice.id!)"><mat-icon>edit</mat-icon></button>
-            <button class="delete button-primary" (click)="cancel(invoice.status, invoice.id!)"><mat-icon>delete</mat-icon></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="error-message" [class.visible]="errorMessage">{{ errorMessage }}</div>
-    <div class="toast" [class.visible]="showSuccess">Rechnung wurde erfolgreich gelöscht!</div>
-  </section>
-  
+            <button class="button-primary"
+              (click)="correction(invoice.status, invoice.id!)"><mat-icon>edit</mat-icon></button>
+            <button class="delete button-primary"
+              (click)="cancel(invoice.status, invoice.id!)"><mat-icon>delete</mat-icon></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="error-message" [class.visible]="errorMessage">{{ errorMessage }}</div>
+  <div class="toast" [class.visible]="showSuccess">Rechnung wurde erfolgreich gelöscht!</div>
+</section>

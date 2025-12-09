@@ -54,7 +54,28 @@
   }
 }
 
+.d-none {
+  display: none;
+}
+
+.actions-dropdown {
+  backdrop-filter: blur(v.$glass-blur);
+  background: v.$glass-bg;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: v.$radius;
+  padding: 0.5rem;
+  position: absolute;
+  width: 3.5rem;
+  z-index: 1000;
+
+  button {
+    display: block;
+    margin: 0.25rem 0;
+  }
+}
+
 @media (max-width: 750px) {
+
   .invoice-date,
   .invoice-status,
   .invoice-amount {
