@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InvoiceDetailComponent {
   invoice: any = null;
+  private shouldExport: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,9 +20,14 @@ export class InvoiceDetailComponent {
   ) {}
 
   async ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id'); 
+    const id = this.route.snapshot.paramMap.get('id');
+    this.shouldExport = this.route.snapshot.queryParamMap.get('export') === 'pdf';
+
     if (id) {
       this.invoice = await this.invoicesService.getInvoiceById(Number(id));
+      if (this.shouldExport) {
+        this.exportAfterRender();
+      }
     }
   }
 
@@ -30,6 +36,18 @@ export class InvoiceDetailComponent {
       (sum: number, item: any) => sum + item.quantity * item.unitPrice,
       0
     ) || 0;
+  }
+
+  private exportAfterRender() {
+    setTimeout(() => {
+      const element = document.getElementById('invoice-preview');
+      if (element) {
+        this.invoicesService.exportInvoiceAsPDF(
+          element,
+          `invoice_${this.invoice?.id ?? 'preview'}.pdf`
+        );
+      }
+    }, 150);
   }
 }
 

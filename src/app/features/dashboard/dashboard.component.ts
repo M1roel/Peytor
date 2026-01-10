@@ -24,7 +24,7 @@ export class DashboardComponent {
     this.invoices = await this.invoicesService.getInvoices();
     this.openInvoices = this.invoices.filter(invoice => invoice.status !== 'Entwurf').length;
     this.openAmount = this.invoices
-      .filter(invoice => invoice.status === 'Offen' || invoice.status == 'Überfällig')
+      .filter(invoice => invoice.status === 'Offen' || invoice.status === 'Überfällig')
       .reduce((sum, invoice) => sum + invoice.amount, 0);
   }
 }

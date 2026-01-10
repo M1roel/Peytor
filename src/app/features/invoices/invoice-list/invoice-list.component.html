@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let invoice of invoices">
+      <tr *ngFor="let invoice of invoices" [attr.id]="'invoice-' + invoice.id">
         <td>{{ invoice.number }}</td>
         <td>{{ invoice.customer }}</td>
         <td class="invoice-date">{{ invoice.date | date: 'dd.MM.yyyy' }}</td>
@@ -26,6 +26,7 @@
           <button class="button-primary" (click)="toggleDropdown(invoice.id!)"><mat-icon>more_horiz</mat-icon></button>
           <div [id]="'actions-dropdown-' + invoice.id" class="actions-dropdown" [ngClass]="{'d-none': openDropdownId !== invoice.id}">
             <button class="button-primary" (click)="view(invoice.id!)"><mat-icon>search</mat-icon></button>
+            <button class="button-primary" (click)="export(invoice.id!)"><mat-icon>download</mat-icon></button>
             <button class="button-primary"
               (click)="correction(invoice.status, invoice.id!)"><mat-icon>edit</mat-icon></button>
             <button class="delete button-primary"

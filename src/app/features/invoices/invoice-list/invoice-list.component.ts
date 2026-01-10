@@ -49,6 +49,12 @@ export class InvoiceListComponent {
     }
   }
 
+  export(id: number) {
+    this.router.navigate(['app/invoices/detail', id], {
+      queryParams: { export: 'pdf' }
+    });
+  }
+
   async cancel(status: string, id: number) {
     if (status === 'Entwurf') {
       await this.invoicesService.cancelInvoice(id);

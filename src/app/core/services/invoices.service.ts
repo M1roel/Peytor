@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SupabaseService } from './supabase.service';
 import { InvoiceData } from '../models/invoice.model';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Injectable({
   providedIn: 'root'
@@ -124,5 +126,27 @@ export class InvoicesService {
 
     return data as InvoiceData[];
   }
-}
 
+  async exportInvoiceAsPDF(element: HTMLElement, fileName: string) {
+    if (!element) return;
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff',
+      scrollX: 0,
+      scrollY: -window.scrollY,
+    });
+
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const ratio = Math.min(pageWidth / canvas.width, pageHeight / canvas.height);
+    const imgWidth = canvas.width * ratio;
+    const imgHeight = canvas.height * ratio;
+
+    pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+    pdf.save(fileName);
+  }
+}
