@@ -37,6 +37,6 @@ export class ErrorMessagesService {
   }
 
   getInvoiceErrorMessage(): string {
-    return 'Die Rechnung muss den Status Entwurf haben, um gelöscht zu werden.';
+    return 'Die Rechnung muss den Status Entwurf haben, um gelöscht oder bearbeitet zu werden.';
   }
 }

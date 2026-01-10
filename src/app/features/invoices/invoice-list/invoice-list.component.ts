@@ -45,8 +45,9 @@ export class InvoiceListComponent {
     if (status === 'Entwurf') {
       this.router.navigate(['app/invoices/edit', id]);
     } else {
-      console.log('Korrektur nicht möglich, da der Status nicht "Entwurf" ist.');
+      this.showErrorMsg();
     }
+    this.toggleDropdown(id);
   }
 
   export(id: number) {
@@ -62,16 +63,21 @@ export class InvoiceListComponent {
       this.showSuccess = true;
       setTimeout(() => {
         this.showSuccess = false;
-      }, 3000);
+      }, 4000);
     } else {
-      this.errorMessage = this.errorMessagesService.getInvoiceErrorMessage();
-      setTimeout(() => {
-        this.errorMessage = '';
-      }, 3000);
+      this.showErrorMsg();
     }
+    this.toggleDropdown(id);
   }
 
   toggleDropdown(id: number) {
     this.openDropdownId = this.openDropdownId === id ? null : id;
+  }
+
+  showErrorMsg() {
+    this.errorMessage = this.errorMessagesService.getInvoiceErrorMessage();
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, 4000);
   }
 }
