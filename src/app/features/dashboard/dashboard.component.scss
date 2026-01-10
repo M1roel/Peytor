@@ -14,6 +14,16 @@
     padding: 1.5rem;
 }
 
+.invoice-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 span {
     @include m.styleFont('Space Grotesk', 16px, 400);
+}
+
+h3 {
+    color: v.$text-accent;
 }
